@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1D2440">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>TOKYO 2026 旅行小幫手</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-title" content="TOKYO 2026">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script>if('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); });</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  if (window.tailwind) tailwind.config = {
+    theme: { extend: {
+      colors: { ink:'#1D2440', paper:'#F2F5EE', glow:'#C9F2C7', pink:'#FF5C8A', teal:'#12A594', sun:'#FFD23F', sky:'#4C6FFF' },
+      fontFamily: { disp:['"Dela Gothic One"','"Noto Sans TC"','sans-serif'], body:['"Noto Sans TC"','system-ui','sans-serif'] }
+    } }
+  }
+</script>
+<script>window.__fxImport = function(u){ return import(u, {with:{type:"json"}}); };</script>
+<style id="css">
+  @font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:900;font-display:block;src:url(data:font/woff;base64,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) format("woff")}
+  .fa-solid{font-family:"Font Awesome 6 Free";font-weight:900;font-style:normal;font-variant:normal;line-height:1;display:inline-block;text-rendering:auto;-webkit-font-smoothing:antialiased}
+  .fa-arrow-down::before{content:"\f063"}.fa-arrow-right::before{content:"\f061"}.fa-arrow-up::before{content:"\f062"}.fa-bell::before{content:"\f0f3"}.fa-book-open::before{content:"\f518"}.fa-building-flag::before{content:"\e4d5"}.fa-camera::before{content:"\f030"}.fa-check::before{content:"\f00c"}.fa-chevron-down::before{content:"\f078"}.fa-circle-info::before{content:"\f05a"}.fa-clock::before{content:"\f017"}.fa-cloud-sun::before{content:"\f6c4"}.fa-copy::before{content:"\f0c5"}.fa-download::before{content:"\f019"}.fa-handshake::before{content:"\f2b5"}.fa-headset::before{content:"\f590"}.fa-house::before{content:"\f015"}.fa-image::before{content:"\f03e"}.fa-lightbulb::before{content:"\f0eb"}.fa-link::before{content:"\f0c1"}.fa-list-check::before{content:"\f0ae"}.fa-location-dot::before{content:"\f3c5"}.fa-passport::before{content:"\f5ab"}.fa-paste::before{content:"\f0ea"}.fa-pen::before{content:"\f304"}.fa-phone::before{content:"\f095"}.fa-plane-arrival::before{content:"\f5af"}.fa-plane-departure::before{content:"\f5b0"}.fa-plus::before{content:"\2b"}.fa-receipt::before{content:"\f543"}.fa-rotate::before{content:"\f2f1"}.fa-route::before{content:"\f4d7"}.fa-scissors::before{content:"\f0c4"}.fa-shield-halved::before{content:"\f3ed"}.fa-taxi::before{content:"\f1ba"}.fa-temperature-half::before{content:"\f2c9"}.fa-thumbtack::before{content:"\f08d"}.fa-trash::before{content:"\f1f8"}.fa-triangle-exclamation::before{content:"\f071"}.fa-truck-medical::before{content:"\f0f9"}.fa-up-right-from-square::before{content:"\f35d"}.fa-user-group::before{content:"\f500"}.fa-utensils::before{content:"\f2e7"}.fa-xmark::before{content:"\f00d"}.fa-yen-sign::before{content:"\f157"}
+  :root{
+    --ink:#1D2440; --paper:#F2F5EE; --glow:#C9F2C7; --pink:#FF5C8A; --teal:#12A594; --sun:#FFD23F; --sky:#4C6FFF;
+    --day:#FF5C8A;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{background:var(--ink);font-size:106.25%;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans TC",system-ui,sans-serif;font-size:1rem;line-height:1.7;
+    max-width:520px;margin-inline:auto;min-height:100vh;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+  .disp{font-family:"Dela Gothic One","Noto Sans TC",sans-serif;font-weight:400;letter-spacing:.01em}
+  h1,h2,h3{margin:0;font-weight:900;line-height:1.25}
+  a{color:inherit}
+  button{font:inherit;color:inherit;cursor:pointer}
+  :focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+
+  /* 軟膠吊卡：硬邊框 + 實色位移陰影 */
+  .slab{background:#fff;border:2px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink)}
+  .slab-flat{background:#fff;border:2px solid var(--ink);border-radius:14px}
+  .btn{display:inline-flex;align-items:center;gap:.4rem;min-height:46px;padding:.4rem 1rem;border:2px solid var(--ink);border-radius:999px;
+    background:#fff;font-weight:700;font-size:.94rem;text-decoration:none;box-shadow:2px 2px 0 var(--ink);transition:transform .08s,box-shadow .08s}
+  .btn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+  .btn-ink{background:var(--ink);color:#fff}
+  .btn-sun{background:var(--sun)}
+  .btn-pink{background:var(--pink);color:#fff}
+  .chip{display:inline-block;padding:.05rem .55rem;border:2px solid var(--ink);border-radius:999px;font-size:.75rem;font-weight:700;background:#fff;white-space:nowrap}
+  .field{width:100%;min-height:50px;padding:.5rem .75rem;border:2px solid var(--ink);border-radius:10px;background:#fff;font:inherit;color:inherit}
+  .field::placeholder{color:#8a90a6}
+
+  /* 頁首 */
+  .mast{background:var(--ink);color:#fff;padding:calc(12px + env(safe-area-inset-top)) 18px 14px;position:relative;overflow:hidden;border-bottom-left-radius:18px;border-bottom-right-radius:18px}
+  .mast h1{font-size:1.75rem;line-height:1.15;color:var(--glow);padding-right:104px}
+  .mast .sub{color:#cfd5ea;font-size:.85rem;margin:.3rem 0 0;padding-right:104px}
+  .count{position:absolute;right:16px;top:calc(12px + env(safe-area-inset-top));background:var(--sun);color:var(--ink);border-radius:12px;
+    padding:.25rem .65rem;text-align:center;transform:rotate(3deg);border:2px solid #fff;font-weight:900;font-size:.75rem;line-height:1.3}
+  .count b{display:block;font-size:1.3rem;line-height:1}
+
+  /* 吊卡式日期選擇 */
+  .days{display:flex;gap:10px;overflow-x:auto;padding:16px 18px 10px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .days::-webkit-scrollbar{display:none}
+  .daycard{flex:0 0 auto;width:106px;scroll-snap-align:start;border:2px solid var(--ink);border-radius:12px;background:#fff;padding:20px 8px 10px;
+    position:relative;text-align:center;transition:transform .12s}
+  .daycard::before{content:"";position:absolute;top:7px;left:50%;width:22px;height:7px;margin-left:-11px;border-radius:99px;background:var(--paper);border:2px solid var(--ink)}
+  .daycard .d{font-size:1.25rem;line-height:1.1}
+  .daycard .w{font-size:.75rem;font-weight:700}
+  .daycard .a{font-size:.78rem;line-height:1.3;margin-top:4px;color:#4a516b}
+  .daycard[aria-selected="true"]{background:var(--c);box-shadow:4px 4px 0 var(--ink);transform:translateY(-3px)}
+  .daycard[aria-selected="true"] .a{color:var(--ink)}
+
+  /* 時間軸 */
+  .tl{list-style:none;margin:0;padding:0 18px 8px 18px}
+  .tl li{position:relative;padding:0 0 18px 26px}
+  .tl li::before{content:"";position:absolute;left:6px;top:8px;bottom:-8px;width:2px;background:var(--ink);opacity:.25}
+  .tl li:last-child::before{display:none}
+  .tl li::after{content:"";position:absolute;left:0;top:6px;width:14px;height:14px;border-radius:50%;background:var(--day);border:2px solid var(--ink)}
+  .tl .time{font-size:1rem;line-height:1.5;margin-bottom:6px}
+  .tl .box{padding:12px 14px}
+  .tl .box h3{font-size:1.12rem}
+  .tl .note{font-size:.94rem;color:#3d4460;margin-top:6px}
+  .tl li.key .box{background:var(--sun)}
+  .tl li.key .note{color:var(--ink)}
+  .tl li.key::after{background:var(--pink);width:18px;height:18px;left:-2px;top:4px}
+  .stamp{display:inline-flex;align-items:center;gap:.3rem;background:var(--pink);color:#fff;border:2px solid var(--ink);border-radius:8px;
+    padding:0 .5rem;font-size:.78rem;font-weight:900;transform:rotate(-2deg);margin-bottom:6px}
+
+  /* 導覽文章 */
+  .article{padding:0 18px 34px}
+  .article h2{font-size:1.7rem}
+  .article .lead{font-size:1.05rem;font-weight:500;margin:.6rem 0 1rem}
+  .article p{margin:0 0 .9rem;line-height:1.85}
+  .article .kicker{font-size:.85rem;font-weight:700;color:#4a516b}
+  .trivia{background:var(--glow);border:2px solid var(--ink);border-radius:14px;padding:12px 14px;margin:14px 0}
+  .trivia h4{margin:0 0 4px;font-size:.95rem;font-weight:900}
+  .trivia ul{margin:0;padding-left:1.1rem;font-size:.92rem}
+  .trivia li{margin:.25rem 0}
+  .map{width:100%;height:230px;border:2px solid var(--ink);border-radius:14px;display:block;background:#dde3d6}
+  .rule{height:10px;margin:0 18px 28px;background:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 18px);opacity:.9;border-radius:2px}
+
+  /* 計算機 */
+  .keys{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .keys button{min-height:58px;border:2px solid var(--ink);border-radius:12px;background:#fff;font-size:1.15rem;font-weight:700;box-shadow:2px 2px 0 var(--ink)}
+  .keys button:active{transform:translate(2px,2px);box-shadow:none}
+  .keys .op{background:var(--glow)}
+  .keys .eq{background:var(--pink);color:#fff}
+  .keys .fn{background:var(--ink);color:#fff}
+  .screen{background:var(--ink);color:#fff;border-radius:12px;padding:12px 14px;min-height:96px;text-align:right;word-break:break-all}
+  .screen .expr{font-size:1rem;color:#cfd5ea;min-height:1.6em}
+  .screen .jpy{font-size:1.9rem;line-height:1.2;color:var(--glow)}
+  .screen .twd{font-size:1rem;color:var(--sun);font-weight:700}
+
+  /* 底部導覽 */
+  .nav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:520px;background:var(--ink);display:grid;grid-template-columns:repeat(5,1fr);
+    padding:7px 10px calc(7px + env(safe-area-inset-bottom));gap:4px;z-index:40;border-top-left-radius:20px;border-top-right-radius:20px;box-shadow:0 -4px 0 rgba(29,36,64,.12)}
+  .nav button{background:none;border:0;color:#c3c9e0;min-height:54px;padding:7px 0 6px;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:.72rem;font-weight:900;letter-spacing:.04em}
+  .nav button i{font-size:1.28rem}
+  .nav button[aria-selected="true"]{background:var(--glow);color:var(--ink)}
+
+
+  /* 提前設定步驟 */
+  .step{display:flex;gap:10px;padding:12px 0;border-top:1px solid #d9dece}
+  .step:first-child{border-top:0}
+  .step .no{flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:2px solid var(--ink);background:var(--sun);display:grid;place-content:center;font-size:.9rem}
+  .step.done .no{background:var(--teal);color:#fff}
+  .step.done .st{text-decoration:line-through;opacity:.6}
+  .step .st{font-weight:900;font-size:1rem;line-height:1.4}
+  .step .sd{font-size:.9rem;margin:4px 0 0}
+  .step ul{margin:6px 0 0;padding-left:1.1rem;font-size:.9rem}
+  .copyrow{display:flex;align-items:center;gap:8px;border:2px solid var(--ink);border-radius:10px;background:var(--paper);padding:6px 6px 6px 10px;margin-top:6px}
+  .copyrow .k{font-size:.75rem;color:#4a516b;line-height:1.2}
+  .copyrow .v{font-weight:700;word-break:break-all;line-height:1.3}
+  .copyrow button{flex:0 0 auto;min-height:36px;padding:0 .7rem;border:2px solid var(--ink);border-radius:8px;background:#fff;font-weight:700;font-size:.8rem}
+  .copyrow button.ok{background:var(--teal);color:#fff}
+  .donebtn{margin-top:10px;min-height:38px;padding:0 .8rem;border:2px solid var(--ink);border-radius:999px;background:#fff;font-weight:700;font-size:.85rem}
+  .step.done .donebtn{background:var(--glow)}
+
+  /* 共同帳本 */
+  .who{display:flex;flex-wrap:wrap;gap:8px}
+  .who button{min-height:40px;padding:0 .9rem;border:2px solid var(--ink);border-radius:999px;background:#fff;font-weight:700;font-size:.9rem}
+  .who button[aria-pressed="true"]{background:var(--teal);color:#fff}
+  .pay{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid #d9dece}
+  .pay:first-child{border-top:0}
+  .pay .names{flex:1;min-width:0;font-weight:900;font-size:1.02rem;line-height:1.35}
+  .bal{display:grid;grid-template-columns:1fr auto auto;gap:4px 12px;font-size:.85rem;align-items:baseline}
+  .bal b{font-size:.9rem}
+  select.field{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 12px) 55%;background-size:6px 6px;background-repeat:no-repeat;padding-right:2rem}
+  /* App 內視窗 */
+  dialog#sheet{width:100%;max-width:520px;height:88vh;max-height:88vh;margin:auto auto 0;padding:0;border-radius:18px 18px 0 0;border-bottom:0;overflow:hidden}
+  dialog#sheet[open]{display:flex;flex-direction:column}
+  #sheet .bar2{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--ink);color:#fff}
+  #sheet .bar2 b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #sheet iframe{flex:1;width:100%;border:0;background:#dde3d6}
+  #sheet .foot{padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;gap:8px;flex-wrap:wrap;border-top:2px solid var(--ink)}
+  .editrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-top:10px;border-top:2px dashed #9aa1b8}
+  .editrow button{min-height:36px;min-width:40px;padding:0 .6rem;border:2px solid var(--ink);border-radius:8px;background:#fff;font-weight:700;font-size:.8rem}
+  .editrow button:disabled{opacity:.35}
+  .pe label{display:block;font-weight:700;font-size:.88rem;margin-top:8px}
+  .pe small{display:block;color:#4a516b;font-size:.78rem;margin-top:2px;font-weight:400}
+  [hidden]{display:none!important}
+  .tab{display:none}
+  .tab.on{display:block}
+  .sec-title{padding:22px 18px 10px;font-size:1.35rem}
+  .sec-desc{padding:0 18px 12px;font-size:.9rem;color:#4a516b;margin:0}
+  .pad{padding:0 18px}
+  details.slab-flat{padding:0;overflow:hidden}
+  details.slab-flat summary{list-style:none;padding:12px 14px;font-weight:900;display:flex;justify-content:space-between;align-items:center;gap:8px;cursor:pointer}
+  details.slab-flat summary::-webkit-details-marker{display:none}
+  details.slab-flat[open] summary i.fa-chevron-down{transform:rotate(180deg)}
+  details.slab-flat .inner{padding:0 14px 14px;font-size:.92rem}
+  details.slab-flat .inner ul{margin:0;padding-left:1.1rem}
+  details.slab-flat .inner li{margin:.35rem 0}
+  .check{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-bottom:1px solid #d9deCF}
+  .check:last-child{border-bottom:0}
+  .check input{appearance:none;flex:0 0 auto;width:26px;height:26px;border:2px solid var(--ink);border-radius:8px;background:#fff;margin:1px 0 0;display:grid;place-content:center}
+  .check input:checked{background:var(--teal)}
+  .check input:checked::after{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;color:#fff;font-size:.85rem}
+  .check input:checked + span{text-decoration:line-through;opacity:.55}
+  .bar{height:14px;border:2px solid var(--ink);border-radius:99px;background:#fff;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--teal);transition:width .25s}
+  dialog{border:2px solid var(--ink);border-radius:16px;padding:14px;max-width:min(92vw,480px);background:#fff;color:var(--ink)}
+  dialog::backdrop{background:rgba(29,36,64,.7)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<template id="shell">
+<header class="mast">
+  <div class="count" id="countdown" aria-live="polite"></div>
+  <h1 class="disp">TOKYO 2026</h1>
+  <p class="sub">12/2（三）到 12/6（日），四人同行<br>日本時間比台灣快 1 小時</p>
+</header>
+
+<main>
+<!-- ============ PLAN ============ -->
+<section class="tab on" id="tab-plan">
+  <div class="days" id="days" role="tablist" aria-label="選擇日期"></div>
+  <div class="pad" id="dayhead"></div>
+  <ol class="tl" id="timeline"></ol>
+  <div class="pad" id="dayextra"></div>
+</section>
+
+<!-- ============ GUIDE ============ -->
+<section class="tab" id="tab-guide">
+  <h2 class="sec-title">出發前讀一讀</h2>
+  <p class="sec-desc">這趟會走到的地方，背後的故事和現場用得上的小知識。</p>
+  <div class="pad" id="guide-toc" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px"></div>
+  <div id="guide"></div>
+</section>
+
+<!-- ============ WALLET ============ -->
+<section class="tab" id="tab-wallet">
+  <h2 class="sec-title">匯率計算機</h2>
+  <div class="pad">
+    <div class="slab" style="padding:14px">
+      <label style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem;margin-bottom:10px">
+        <span>1 日圓 =</span>
+        <input id="rate" class="field" type="number" inputmode="decimal" step="0.0001" min="0" style="width:110px;min-height:40px">
+        <span>台幣</span>
+      </label>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-2px 0 10px">
+        <span id="rate-info" style="font-size:.8rem;color:#4a516b;flex:1;min-width:150px" aria-live="polite"></span>
+        <button type="button" class="chip" id="rate-refresh" style="min-height:34px;background:var(--glow)"><i class="fa-solid fa-rotate"></i> 更新匯率</button>
+      </div>
+      <div class="screen" aria-live="polite">
+        <div class="expr" id="c-expr"></div>
+        <div class="jpy disp" id="c-jpy">¥0</div>
+        <div class="twd" id="c-twd">約 NT$0</div>
+      </div>
+      <div class="keys" id="keys" style="margin-top:10px"></div>
+      <button class="btn btn-sun" id="c-to-expense" style="width:100%;justify-content:center;margin-top:12px"><i class="fa-solid fa-arrow-down"></i>把這個金額記一筆</button>
+    </div>
+  </div>
+
+  <h2 class="sec-title">記一筆</h2>
+  <div class="pad">
+    <details class="slab-flat" id="mem-box" style="margin-bottom:12px">
+      <summary><span><i class="fa-solid fa-user-group"></i> 成員名字與我是誰</span><i class="fa-solid fa-chevron-down"></i></summary>
+      <div class="inner">
+        <p style="margin:0 0 8px">先把四個人的名字改好，大家的手機會用同一份名單。</p>
+        <div id="mem-inputs" style="display:grid;grid-template-columns:1fr 1fr;gap:8px"></div>
+        <p style="margin:12px 0 6px;font-weight:700">這支手機是誰的</p>
+        <div class="who" id="me-pick"></div>
+      </div>
+    </details>
+    <form id="exp-form" class="slab" style="padding:14px;display:grid;gap:10px">
+      <label style="font-weight:700;font-size:.9rem">品項
+        <input id="exp-name" class="field" placeholder="例如：肉屋横丁午餐" required maxlength="40">
+      </label>
+      <label style="font-weight:700;font-size:.9rem">日幣金額
+        <input id="exp-amt" class="field" type="number" inputmode="numeric" min="1" step="1" placeholder="3900" required>
+      </label>
+      <div id="exp-twd" style="font-size:.85rem;color:#4a516b"></div>
+      <label style="font-weight:700;font-size:.9rem">誰先付的
+        <select id="exp-payer" class="field"></select>
+      </label>
+      <div>
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px">這筆誰要分攤</div>
+        <div class="who" id="exp-split"></div>
+        <div id="exp-each" style="font-size:.85rem;color:#4a516b;margin-top:6px"></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <label class="btn"><i class="fa-solid fa-camera"></i>拍照
+          <input id="exp-cam" type="file" accept="image/*" capture="environment" hidden></label>
+        <label class="btn"><i class="fa-solid fa-image"></i>選照片
+          <input id="exp-file" type="file" accept="image/*" hidden></label>
+        <img id="exp-prev" alt="已選照片預覽" hidden style="width:52px;height:52px;object-fit:cover;border:2px solid var(--ink);border-radius:10px">
+        <button type="button" id="exp-clear" class="chip" hidden>移除照片</button>
+      </div>
+      <button class="btn btn-ink" style="justify-content:center"><i class="fa-solid fa-plus"></i>記下來</button>
+    </form>
+  </div>
+
+  <h2 class="sec-title">誰要給誰多少</h2>
+  <p class="sec-desc">依照每筆的墊付人和分攤人算出來，用最少的轉帳次數結清。付完按「已付清」。</p>
+  <div class="pad">
+    <div class="slab" style="padding:4px 14px" id="settle"></div>
+    <div class="slab-flat" style="padding:12px 14px;margin-top:12px;background:var(--glow)">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px"><b>全部花費</b><span><span class="disp" style="font-size:1.25rem" id="sum-jpy">¥0</span> <span style="font-size:.85rem;font-weight:700" id="sum-twd"></span></span></div>
+      <div class="bal" id="bal"></div>
+    </div>
+  </div>
+
+  <h2 class="sec-title">和朋友同步</h2>
+  <div class="pad">
+    <div class="slab-flat" style="padding:12px 14px">
+      <p id="sync-msg" style="margin:0 0 10px;font-size:.9rem" aria-live="polite"></p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-pink" id="sync-now" hidden><i class="fa-solid fa-rotate"></i>立即同步</button>
+        <button class="btn" id="sync-copy"><i class="fa-solid fa-copy"></i>複製同步碼</button>
+        <button class="btn" id="sync-paste"><i class="fa-solid fa-paste"></i>貼上同步碼</button>
+      </div>
+      <p style="margin:10px 0 0;font-size:.8rem;color:#4a516b">同步碼是一段文字，貼到群組，朋友按「貼上同步碼」就會把兩邊的帳和行程修改合在一起，不會重複。照片只留在拍的那支手機。</p>
+    </div>
+  </div>
+
+  <h2 class="sec-title">明細</h2>
+  <div class="pad"><div id="exp-list" style="display:grid;gap:10px"></div></div>
+</section>
+
+<!-- ============ LISTS ============ -->
+<section class="tab" id="tab-lists">
+  <h2 class="sec-title">出發前先設定好</h2>
+  <p class="sec-desc">每個人用自己的手機各做一次。照著步驟一格一格做，做完按「這步完成」。灰底的資料可以直接按「複製」貼上。</p>
+  <div class="pad" id="setup" style="display:grid;gap:12px"></div>
+
+  <h2 class="sec-title">行前準備</h2>
+  <div class="pad">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <div class="bar" style="flex:1"><i id="ck-bar" style="width:0"></i></div>
+      <b id="ck-num" style="font-size:.9rem;white-space:nowrap"></b>
+    </div>
+    <div id="checklists" style="display:grid;gap:14px"></div>
+    <form id="ck-form" style="display:flex;gap:8px;margin-top:14px">
+      <input id="ck-new" class="field" placeholder="加一項自己的準備事項" maxlength="60" aria-label="新增準備事項">
+      <button class="btn btn-ink" aria-label="新增"><i class="fa-solid fa-plus"></i></button>
+    </form>
+  </div>
+
+  <h2 class="sec-title">個人備忘錄</h2>
+  <p class="sec-desc">訂位編號、房東電話、想買的軟膠清單都可以記在這。貼上網址會變成可以點的按鈕。資料只存在這支手機。</p>
+  <div class="pad">
+    <form id="memo-form" style="display:grid;gap:8px">
+      <textarea id="memo-text" class="field" rows="3" placeholder="寫點什麼，或貼上網址" aria-label="備忘內容"></textarea>
+      <button class="btn btn-ink" style="justify-content:center"><i class="fa-solid fa-plus"></i>加到備忘錄</button>
+    </form>
+    <div id="memo-list" style="display:grid;gap:10px;margin-top:14px"></div>
+  </div>
+</section>
+
+<!-- ============ INFO ============ -->
+<section class="tab" id="tab-info">
+  <div id="dl-box">
+  <h2 class="sec-title">離線也能用</h2>
+  <div class="pad">
+    <div class="slab" style="padding:14px">
+      <p style="margin:0 0 10px;font-size:.92rem">把整個 App 存成一個檔案放進手機。沒有網路時用 Safari 或 Chrome 打開它，行程、記帳、清單都能用，地圖還會在 App 內的視窗開啟。目前的共同帳本會一起帶走。</p>
+      <button class="btn btn-ink" id="dl-btn"><i class="fa-solid fa-download"></i>下載離線版</button>
+      <p id="dl-msg" style="margin:10px 0 0;font-size:.85rem;color:#4a516b" aria-live="polite"></p>
+    </div>
+  </div>
+  </div>
+
+  <h2 class="sec-title">航班與住宿</h2>
+  <div class="pad" style="display:grid;gap:12px" id="info-trip"></div>
+
+  <h2 class="sec-title">天氣</h2>
+  <div class="pad">
+    <div class="slab" style="padding:14px">
+      <p style="margin:0 0 10px;font-size:.92rem">12 月的東京白天平均約 12°C、夜間約 4°C。保暖外套加中層和圍巾，鞋子選好走防滑的。實際預報出發前三天再查。</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="btn btn-sun" target="_blank" rel="noopener" href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=130000"><i class="fa-solid fa-cloud-sun"></i>日本氣象廳 東京預報</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://tenki.jp/forecast/3/16/4410/13104/"><i class="fa-solid fa-temperature-half"></i>tenki.jp 新宿區</a>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="sec-title">緊急聯絡</h2>
+  <div class="pad" style="display:grid;gap:10px" id="info-sos"></div>
+
+  <h2 class="sec-title">出示給對方看的日文</h2>
+  <p class="sec-desc">點一下會放大，直接把手機轉給司機或店員。</p>
+  <div class="pad" style="display:grid;gap:8px" id="info-phrases"></div>
+
+  <h2 class="sec-title">出入境與禁忌</h2>
+  <div class="pad" style="display:grid;gap:10px" id="info-rules"></div>
+
+  <h2 class="sec-title">遇到狀況怎麼辦</h2>
+  <div class="pad" style="display:grid;gap:10px" id="info-playbook"></div>
+
+  <h2 class="sec-title">地址簿</h2>
+  <p class="sec-desc">地址可以直接給計程車司機看。</p>
+  <div class="pad" style="display:grid;gap:10px" id="info-dir"></div>
+
+  <p class="sec-desc" style="margin-top:24px">內容整理自 TOKYO 2026 Field Guide V11.1（2026/11/11 更新）。訂位、門票、活動規則與營業時間都以店家和官方最後公告為準。</p>
+</section>
+</main>
+
+<nav class="nav" role="tablist" aria-label="主選單">
+  <button data-tab="plan" aria-selected="true"><i class="fa-solid fa-route"></i>PLAN</button>
+  <button data-tab="guide" aria-selected="false"><i class="fa-solid fa-book-open"></i>GUIDE</button>
+  <button data-tab="wallet" aria-selected="false"><i class="fa-solid fa-yen-sign"></i>WALLET</button>
+  <button data-tab="lists" aria-selected="false"><i class="fa-solid fa-list-check"></i>LISTS</button>
+  <button data-tab="info" aria-selected="false"><i class="fa-solid fa-circle-info"></i>INFO</button>
+</nav>
+
+<dialog id="dlg"><div id="dlg-body"></div><div style="display:flex;gap:8px;margin-top:12px"><button class="btn btn-pink" id="dlg-yes" hidden style="flex:1;justify-content:center">刪除</button><button class="btn btn-ink" id="dlg-close" style="flex:1;justify-content:center">關閉</button></div></dialog>
+
+<dialog id="sheet" aria-label="地圖視窗">
+  <div class="bar2"><i class="fa-solid fa-location-dot"></i><b id="sheet-title"></b><button id="sheet-close" aria-label="關閉視窗" style="border:0;background:none;color:#fff;padding:6px 8px;font-size:1.1rem"><i class="fa-solid fa-xmark"></i></button></div>
+  <iframe id="sheet-frame" title="地圖" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class="foot" id="sheet-foot"></div>
+</dialog>
+</template>
+<script id="shared" type="application/json">null</script>
+<script id="app">
+document.body.insertBefore(document.getElementById('shell').content.cloneNode(true), document.body.firstChild);
+/* ========== 小工具 ========== */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); return true; }catch(e){ return false; } }
+};
+const maps = q => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+const blog = q => 'https://www.google.com/search?q=' + encodeURIComponent(q + ' 食記');
+const tel = n => { const d = n.replace(/[^0-9]/g,''); return 'tel:' + (d.length > 3 && d[0]==='0' ? '+81' + d.slice(1) : d); };
+const yen = n => '¥' + Math.round(n).toLocaleString('en-US');
+const ntd = n => 'NT$' + Math.round(n).toLocaleString('en-US');
+
+/* ========== 行程資料 ========== */
+const DAYS = [
+ { date:'2026-12-02', d:'12/2', w:'週三', area:'原宿、表參道', color:'#FF5C8A',
+   title:'裏原宿、炸豬排、採買料理',
+   theme:'先抵達、休息，再逛少數真正想去的品牌。晚上回住處享受在東京生活的第一餐。',
+   keep:'抵達與入住、晚餐、LIFE 採買', drop:'Supreme、NEIGHBORHOOD、grounds 部分分店',
+   items:[
+    {t:'05:30–06:00', title:'抵達桃園機場第一航廈', note:'每人護照與電子機票，核對姓名與行李額度。行動電源最多 2 個、每個 100Wh 以下，只能隨身。', key:1, stamp:'集合'},
+    {t:'08:25', title:'星宇 JX800 起飛，桃園 T1 往成田 T2', note:'依航空公司當日通知為準。'},
+    {t:'12:35', title:'抵達成田第二航廈，入境、領行李', note:'落地到完成入境可能超過 60 到 90 分鐘。', places:[{n:'成田機場 T2', q:'成田空港 第2ターミナル'}]},
+    {t:'14:00–16:30', title:'專車到中井住處，放行李、休息', note:'若 17:00 才到，至少休息 30 分鐘再出發。', places:[{n:'住處', q:'東京都新宿区中井1-7-5'}]},
+    {t:'16:30–18:45', title:'裏原宿逛街，四間裡挑兩三間', note:'NUBIAN 優先，其餘看時間刪。入住若超過 17:30，縮短購物或直接去晚餐。', places:[{n:'NUBIAN 原宿', q:'NUBIAN 原宿'},{n:'Supreme 原宿', q:'Supreme 原宿'},{n:'NEIGHBORHOOD 原宿', q:'NEIGHBORHOOD 原宿'},{n:'grounds', q:'grounds 原宿'}]},
+    {t:'19:00–20:15', title:'tonkatsu.jp 表參道 炸豬排', tag:'待確認開店與訂位', note:'12/2 是當月第一個週三，可能休店。無位或休店就改まい泉 青山本店。', places:[{n:'tonkatsu.jp', q:'tonkatsu.jp 表参道 北青山3-9-9', food:'tonkatsu.jp 表參道', tel:'03-6427-4910'},{n:'備案 まい泉 青山本店', q:'とんかつ まい泉 青山本店', food:'まい泉 青山本店', tel:'050-3188-5802'}]},
+    {t:'20:15–21:30', title:'計程車到 LIFE 東中野採買，再回中井', note:'營業到 00:00。先買重的：鍋底、飲料、零食、調味。', places:[{n:'LIFE 東中野', q:'ライフ 東中野店', tel:'03-5386-6181'}]},
+    {t:'21:30–23:30', title:'簡單煮食、小酌、洗澡休息', note:'控制音量，先確認住處的安靜時段。'}
+   ],
+   extra:[{h:'第一晚晚餐二選一', li:['tonkatsu.jp：北青山 3-9-9。平日晚餐 17:30 到 21:00，最後點餐 20:00。店家確認 12/2 有開且訂位成功才算定案。','まい泉 青山本店：神宮前 4-8-5。11:00 到 22:00，最後點餐 21:00。離得近，航班延誤時當備案。']}]
+ },
+ { date:'2026-12-03', d:'12/3', w:'週四', area:'秋葉原、中野', color:'#12A594',
+   title:'秋葉原到中野，軟膠主日',
+   theme:'中午吃和牛、下午收藏店慢逛，晚上提早回住處煮食。這天只有秋葉原到中野這段搭 JR。',
+   keep:'肉屋横丁、CoCoo、One-Up、中野 Broadway', drop:'Mandarake Complex、松栄寿司',
+   items:[
+    {t:'11:00', title:'中井出發，計程車往秋葉原', note:'看路況可提早到 10:45 出門。', key:1, stamp:'集合'},
+    {t:'12:30–14:10', title:'肉屋横丁 和牛放題，約 100 分鐘', tag:'待訂位', note:'訂不到改福寿 秋葉原，要先確認中午有沒有放題。', places:[{n:'肉屋横丁 秋葉原', q:'肉屋横丁 秋葉原 BiTO AKIBA', food:'肉屋横丁 秋葉原', tel:'03-3525-4629'}]},
+    {t:'14:15–15:10', title:'Mandarake CoCoo，玩具重點', note:'12:00 到 20:00。時間不夠也別趕，寧可延長這間。', places:[{n:'Mandarake CoCoo', q:'まんだらけ CoCoo 秋葉原', tel:'03-3527-1631'}]},
+    {t:'15:10–15:55', title:'One-Up AKIBA', note:'神田須田町 2-11-8 玉甚ビル 2F，不要去舊址。營業以店面當日公告為準。', places:[{n:'One-Up AKIBA', q:'東京都千代田区神田須田町2-11-8 玉甚ビル'}]},
+    {t:'15:55–16:35', title:'Mandarake Complex，可跳過', note:'時間緊就先刪這站，把時間留給中野。', places:[{n:'Mandarake Complex', q:'まんだらけ コンプレックス 秋葉原'}]},
+    {t:'16:35–17:25', title:'JR 秋葉原到中野', note:'搭中央・總武線各站停車，含步行與等車約 35 到 50 分鐘。', places:[{n:'JR 秋葉原站', q:'JR 秋葉原駅'}]},
+    {t:'17:25–19:40', title:'中野 Broadway：Mandarake、墓場の画廊', note:'店家多在 20:00 收。墓場の画廊在 3F，「墓場のにゃんソフ祭り」展期 12/1 到 12/27，展出不代表都能現場買。', places:[{n:'中野 Broadway', q:'中野ブロードウェイ'},{n:'墓場の画廊', q:'墓場の画廊 中野ブロードウェイ'}]},
+    {t:'19:40–20:40', title:'回中井，視需要補買食材', note:'今天只補肉片、菜和熟食。'},
+    {t:'20:40–23:00', title:'住處料理聚會，第二晚', note:'關東煮、湯品、超市下酒菜，減少廚務。'}
+   ],
+   extra:[{h:'收藏店的時間限制', li:['Mandarake CoCoo、Complex、中野店大多 12:00 到 20:00。','松栄寿司中野店週四通常只到 18:00、只收現金，想吃要在剛到中野時就去。','買了大件軟膠，用可折疊購物袋和緩衝材，搭車時四人分散拿盒裝品，避免壓損。']}]
+ },
+ { date:'2026-12-04', d:'12/4', w:'週五', area:'淺草、小網、銀座', color:'#FFD23F',
+   title:'淺草、小網、銀座、聖誕夜',
+   theme:'晚起、吃厚切牛舌、寺社參拜、銀座短暫選物，晚上在聖誕市集吃小吃看燈飾。',
+   keep:'牛舌午餐、淺草寺、小網參拜、19:00 市集', drop:'茶房、銀座兩店擇一',
+   items:[
+    {t:'11:00', title:'中井出發，計程車往淺草', note:'路況不好就改電車，不能晚於午餐訂位時間。', key:1, stamp:'集合'},
+    {t:'12:30–13:30', title:'牛たんの檸檬 淺草店（2F）', tag:'待訂位', note:'建議訂 12:30，至少留 60 分鐘。', places:[{n:'牛たんの檸檬 淺草', q:'牛たんの檸檬 浅草店', food:'牛たんの檸檬 淺草', tel:'03-6284-7266'}]},
+    {t:'13:30–14:40', title:'淺草寺、雷門、仲見世', note:'下午人多很正常，慢慢走。', places:[{n:'淺草寺', q:'浅草寺'},{n:'雷門', q:'雷門 浅草'}]},
+    {t:'14:40–15:20', title:'計程車到小網神社', note:'到了先看排隊人潮。'},
+    {t:'15:20–16:00', title:'小網神社參拜、洗錢、御守', note:'御守授與到 17:00。排隊超過 30 到 40 分鐘就只參拜，把時間留給晚上。', places:[{n:'小網神社', q:'小網神社', tel:'03-3668-1080'}]},
+    {t:'16:30–17:15', title:'TANAGOKORO TEAROOM 茶席', tag:'待預約', note:'只有 16 席，平日可電話預約。趕不上就放棄。', places:[{n:'TANAGOKORO', q:'TANAGOKORO TEAROOM 銀座', food:'TANAGOKORO TEAROOM 銀座', tel:'03-3567-8455'}]},
+    {t:'17:15–18:15', title:'Dover Street Market Ginza 或 GINZA SIX', note:'只挑一間。時間晚了就直接去市集。', places:[{n:'DSM Ginza', q:'Dover Street Market Ginza'},{n:'GINZA SIX', q:'GINZA SIX'}]},
+    {t:'18:15', title:'計程車往芝公園御成門站前廣場', note:'跟司機說芝公園 3-2，御成門站 A6 出口附近。', places:[{n:'御成門站前廣場', q:'東京都港区芝公園3-2 御成門駅'}]},
+    {t:'19:00–21:00', title:'東京聖誕市集', tag:'門票待購', note:'開幕日 16:00 到 22:00，最後入場 21:00，最後點餐 21:30。分時段入場，以訂單條款為準。', key:1, stamp:'19:00 入場', places:[{n:'聖誕市集 芝公園', q:'東京クリスマスマーケット 芝公園'}], link:{n:'官方活動頁', u:'https://tokyochristmas.net/shiba/'}},
+    {t:'21:00–22:20', title:'計程車回中井', note:'累了就提早離場。'},
+    {t:'22:20–00:00', title:'住處小聚', note:'現成飲料點心就好，今晚不開伙。'}
+   ],
+   extra:[{h:'雨天與排隊怎麼決定', li:['市集小雨照開，部分座位有屋頂。豪雨、大雪或主辦宣布停辦時，改在銀座附近吃晚餐再提早回家。','人太多或下雨，茶房和銀座刪一項。']}]
+ },
+ { date:'2026-12-05', d:'12/5', w:'週六', area:'怪獣島、中目黑', color:'#FF9F43',
+   title:'怪獣島限定軟膠、串燒宵夜',
+   theme:'今天只有怪獣島是高優先。想搶購的人照官方規則出發，其他人正常休息，下午再會合。',
+   keep:'官方販售與入場規則、20:30 居酒屋', drop:'咖啡、代官山、澀谷 KITH',
+   items:[
+    {t:'待官方公布', title:'出發到 GALLERY STAND「怪獣島 KAIJU ISLAND」', tag:'規則待公告', note:'目黑區東山 2-2-2。排隊開始時間還沒公布，不要自己提前夜排。', key:1, stamp:'今日重點', places:[{n:'GALLERY STAND', q:'東京都目黒区東山2-2-2 オリエンタル東山'}]},
+    {t:'上午到 15:30', title:'入場、整理券或抽選、限量商品購買', note:'部分作品是一點物或先到先得，每件規則不一定相同。帶現金和信用卡。'},
+    {t:'午餐彈性', title:'沒參加搶購的人在中目黑吃拉麵或簡餐', note:'排隊的人不必同時用餐。', places:[{n:'中目黑站周邊', q:'中目黒駅'}]},
+    {t:'15:30–17:15', title:'green bean to bar 或代官山 T-SITE', note:'二選一。活動拖到就直接刪。', places:[{n:'green bean to bar', q:'green bean to bar CHOCOLATE 中目黒'},{n:'代官山 T-SITE', q:'代官山 T-SITE'}]},
+    {t:'17:15–19:45', title:'中目黑逛街、休息', note:'不再繞去澀谷 KITH。'},
+    {t:'20:30–22:30', title:'中目黑 とりまち 串燒居酒屋', tag:'待訂位', note:'只訂座位、單點，2 小時制。訂位時電話說明要四人桌。', key:1, stamp:'20:30 集合', places:[{n:'とりまち', q:'とりまち 中目黒 上目黒3-6-5', food:'とりまち 中目黒', tel:'03-6451-2330'},{n:'備案 なかめのてっぺん', q:'なかめのてっぺん 本店', food:'なかめのてっぺん 本店', tel:'03-5724-4439'}]},
+    {t:'22:30–23:30', title:'計程車回中井', note:'夜間計程車有加成。'}
+   ],
+   extra:[{h:'怪獣島購買決策卡', li:['逐條確認：排隊開始時間、開場時間、整理券或抽選資格、實名規則、每人限購、付款方式、候補。','到得早不等於一定買得到。','想買的作品照片、款式、售價和備選順位，先存進離線相簿。','買完把購買證明和包裝收好。在免稅店買的，離境時要過海關確認。']},
+          {h:'串燒備案', li:['とりまち網路可訂但不能指定座位，要電話告知四人桌。','沒位或活動拖晚，改なかめのてっぺん 本店，爐端燒開到凌晨 05:00。它的包廂通常要 6 人以上，四人不要假設能用。']}]
+ },
+ { date:'2026-12-06', d:'12/6', w:'週日', area:'新宿、成田', color:'#4C6FFF',
+   title:'退房、和牛燒肉、退稅與返台',
+   theme:'最後一天不跨區。行李、專車集合和機場退稅，都排在購物前面。',
+   keep:'10:00 退房、行李、15:00 接送、成田', drop:'任何額外跨區',
+   items:[
+    {t:'10:00', title:'住處退房', note:'拍照檢查垃圾、鑰匙、個人物品。', key:1, stamp:'退房'},
+    {t:'10:00–11:00', title:'到 Busta 新宿 3F 佐川寄放行李', tag:'待預約', note:'四個行李箱一台普通車可能裝不下，預約廂型車或分兩台。', places:[{n:'Busta 新宿', q:'バスタ新宿 東京観光情報センター', tel:'03-5361-8750'}]},
+    {t:'11:00–12:00', title:'新宿南口短暫休息', note:'11:40 往新宿三丁目移動。不去中野或池袋。'},
+    {t:'12:00–13:20', title:'焼肉うしごろ 新宿三丁目', tag:'待訂位', note:'和牛燒肉與牛舌。午間套餐參考 ¥3,900、¥4,900、¥5,900，另加 5% 服務費。客滿改高島屋 14F トラジ或 13F ねぎし。', places:[{n:'焼肉うしごろ', q:'焼肉うしごろ 新宿三丁目店', food:'焼肉うしごろ 新宿三丁目', tel:'03-3358-4129'},{n:'備案 焼肉トラジ', q:'焼肉トラジ 新宿高島屋', food:'焼肉トラジ 新宿高島屋', tel:'03-5361-1992'},{n:'備案 ねぎし', q:'ねぎし 新宿高島屋タイムズスクエア', food:'ねぎし 新宿高島屋', tel:'03-5361-1872'}], link:{n:'TableCheck 訂位', u:'https://www.tablecheck.com/ja/shops/ushigoro-shinjukusanchome/reserve'}},
+    {t:'13:20–14:20', title:'回新宿南口，有時間再買小東西', note:'用餐延誤就取消購物。'},
+    {t:'14:20–14:45', title:'到佐川領出全部行李', note:'點名、點件數，留排隊和搭電梯的時間。', key:1, stamp:'最晚 14:20'},
+    {t:'15:00–15:15', title:'指定街邊集合點上車，專車往成田 T2', tag:'上車點待確認', note:'Busta 的巴士樓層不是專車可以隨意停靠的地方。', key:1, stamp:'機場專車'},
+    {t:'17:00–17:40', title:'抵達成田 T2 三樓出境大廳', places:[{n:'成田 T2 出境大廳', q:'成田空港 第2ターミナル 国際線出発ロビー'}]},
+    {t:'到 18:15', title:'託運前，先辦免稅品海關確認', note:'商品要還在手上。被抽驗時要帶商品去櫃檯。'},
+    {t:'到 19:00', title:'星宇櫃台報到、託運', note:'通常在 Q 櫃台附近，以當天電子看板為準。約起飛前 2.5 小時開櫃、1 小時前關櫃。'},
+    {t:'到 19:40', title:'安檢、出境、前往登機門', note:'來不及辦完退稅時，以趕上航班為第一優先。'},
+    {t:'20:10', title:'星宇 JX805 起飛，23:20 抵達桃園 T1', note:'依機票與當日公告。'}
+   ],
+   extra:[{h:'機場的正確順序', li:['先到成田。','帶著免稅商品完成海關確認。','再把要託運的商品交給航空公司。','最後安檢、出境。不要先託運免稅品再去申請查驗。']}]
+ }
+];
+
+/* ========== PLAN ========== */
+function todayJST(){ return new Date(Date.now() + 9*3600e3).toISOString().slice(0,10); }
+let curDay = Math.max(0, DAYS.findIndex(x => x.date === todayJST()));
+function renderDays(){
+  $('#days').innerHTML = DAYS.map((x,i)=>`
+    <button class="daycard" role="tab" aria-selected="${i===curDay}" style="--c:${x.color}" data-i="${i}">
+      <div class="d disp">${x.d}</div><div class="w">${x.w}</div><div class="a">${x.area}</div>
+    </button>`).join('');
+}
+function placeBtns(p){
+  let h = `<a class="btn" target="_blank" rel="noopener" data-map="${esc(p.q)}" href="${maps(p.q)}"><i class="fa-solid fa-location-dot"></i>${esc(p.n)}</a>`;
+  if(p.food) h += `<a class="btn" target="_blank" rel="noopener" href="${blog(p.food)}" aria-label="${esc(p.n)} 食記"><i class="fa-solid fa-utensils"></i>食記</a>`;
+  if(p.tel) h += `<a class="btn" href="${tel(p.tel)}" aria-label="撥打 ${esc(p.n)} ${p.tel}"><i class="fa-solid fa-phone"></i>${p.tel}</a>`;
+  return h;
+}
+/* 行程 = 原始資料 + 使用者修改紀錄（每筆以最後修改時間為準，可同步）*/
+let planEdit = false;
+const isBaseId = id => /^d\d-\d+$/.test(id);
+function dayItems(di){
+  const recs = ledger.plan, out = [];
+  DAYS[di].items.forEach((it,i)=>{
+    const b = {...it, id:`d${di}-${i}`, day:di, pos:(i+1)*1000}, r = recs[b.id];
+    if(!r || r.orig){ out.push(b); return; }
+    if(r.del) return;
+    const m = {...b, t:r.t, title:r.title, note:r.note, pos:r.pos, key:r.key?1:0, stamp:r.key ? (b.stamp || '重點') : null, edited:true, q:r.q, food:r.food};
+    if(r.q){ m.places = [{n:r.q, q:r.q, food:r.food ? r.q : null}]; m.link = null; m.info = r.q; }
+    out.push(m);
+  });
+  Object.values(recs).forEach(r=>{
+    if(r.day !== di || isBaseId(r.id) || r.del) return;
+    out.push({id:r.id, day:di, pos:r.pos, t:r.t, title:r.title, note:r.note, key:r.key?1:0, stamp:r.key?'重點':null, added:true, q:r.q, food:r.food,
+      places:r.q ? [{n:r.q, q:r.q, food:r.food ? r.q : null}] : null, info:r.q || null});
+  });
+  return out.sort((x,y)=>x.pos - y.pos || x.id.localeCompare(y.id));
+}
+const toRec = it => ({id:it.id, day:it.day, pos:it.pos, t:it.t||'', title:it.title||'', note:it.note||'', q:it.q||'', food:!!it.food, key:!!it.key, at:Date.now()});
+function renderDay(){
+  const x = DAYS[curDay], items = dayItems(curDay);
+  const touched = Object.values(ledger.plan).some(r=>r.day === curDay && !r.orig && !(r.del && !isBaseId(r.id)));
+  document.documentElement.style.setProperty('--day', x.color);
+  $('#dayhead').innerHTML = `
+    <h2 style="font-size:1.45rem;margin:8px 0 6px">第 ${curDay+1} 天　${esc(x.title)}</h2>
+    <p style="margin:0 0 12px;font-size:.95rem">${esc(x.theme)}</p>
+    <div class="slab-flat" style="padding:10px 12px;margin-bottom:12px;font-size:.88rem;display:grid;gap:4px">
+      <div><b><i class="fa-solid fa-thumbtack"></i> 一定保留</b>　${esc(x.keep)}</div>
+      <div style="color:#4a516b"><b><i class="fa-solid fa-scissors"></i> 可以刪</b>　${esc(x.drop)}</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
+      <button class="btn ${planEdit?'btn-pink':''}" id="plan-edit" aria-pressed="${planEdit}"><i class="fa-solid fa-pen"></i>${planEdit?'完成編輯':'編輯這天的行程'}</button>
+      ${planEdit?`<button class="btn" data-add="top"><i class="fa-solid fa-plus"></i>新增到最前面</button>`:''}
+      ${planEdit && touched?`<button class="btn" id="plan-reset"><i class="fa-solid fa-rotate"></i>還原這天</button>`:''}
+    </div>`;
+  $('#timeline').innerHTML = items.map((it,idx)=>`
+    <li class="${it.key?'key':''}">
+      <div class="time disp">${esc(it.t || '時間未定')}</div>
+      <div class="slab box">
+        ${it.stamp?`<div class="stamp"><i class="fa-solid fa-bell"></i>${esc(it.stamp)}</div>`:''}
+        <h3>${esc(it.title)}</h3>
+        ${(it.tag||it.edited||it.added)?`<div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap">
+          ${it.tag?`<span class="chip"><i class="fa-solid fa-clock"></i> ${esc(it.tag)}</span>`:''}
+          ${it.added?`<span class="chip" style="background:var(--glow)">臨時新增</span>`:it.edited?`<span class="chip" style="background:var(--glow)">已修改</span>`:''}</div>`:''}
+        ${it.note?`<p class="note" style="margin-bottom:0;white-space:pre-line">${esc(it.note)}</p>`:''}
+        ${(it.places||it.link)?`<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+          ${(it.places||[]).map(placeBtns).join('')}
+          ${it.info?`<a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=${encodeURIComponent(it.info+' 介紹')}"><i class="fa-solid fa-book-open"></i>查介紹</a>`:''}
+          ${it.link?`<a class="btn btn-ink" target="_blank" rel="noopener" href="${it.link.u}"><i class="fa-solid fa-up-right-from-square"></i>${esc(it.link.n)}</a>`:''}
+        </div>`:''}
+        ${planEdit?`<div class="editrow">
+          <button data-ed="${it.id}"><i class="fa-solid fa-pen"></i> 編輯</button>
+          <button data-mv="${it.id},-1" aria-label="往上移" ${idx===0?'disabled':''}><i class="fa-solid fa-arrow-up"></i></button>
+          <button data-mv="${it.id},1" aria-label="往下移" ${idx===items.length-1?'disabled':''}><i class="fa-solid fa-arrow-down"></i></button>
+          <button data-add="${it.id}"><i class="fa-solid fa-plus"></i> 在下面新增</button>
+          <button data-rm="${it.id}" aria-label="刪除這項行程"><i class="fa-solid fa-trash"></i></button>
+        </div>`:''}
+      </div>
+    </li>`).join('') || `<li><div class="slab box"><p style="margin:0">這天目前沒有行程。按「編輯這天的行程」新增。</p></div></li>`;
+  $('#dayextra').innerHTML = (x.extra||[]).map(e=>`
+    <details class="slab-flat" style="margin-bottom:10px"><summary>${esc(e.h)}<i class="fa-solid fa-chevron-down"></i></summary>
+      <div class="inner"><ul>${e.li.map(l=>`<li>${esc(l)}</li>`).join('')}</ul></div></details>`).join('');
+}
+function planForm(it, isNew){
+  const base = !isNew && isBaseId(it.id);
+  openDlg(`<div class="pe"><h3 style="font-size:1.1rem">${isNew?'新增行程':'修改行程'}</h3>
+    <label>時間<input id="pe-t" class="field" maxlength="20" placeholder="例如 14:00–15:30" value="${esc(it.t||'')}"></label>
+    <label>要做什麼<input id="pe-title" class="field" maxlength="40" placeholder="例如：teamLab Planets" value="${esc(it.title||'')}"></label>
+    <label>地點名稱或地址<input id="pe-q" class="field" maxlength="80" placeholder="例如：teamLab Planets 豊洲" value="${esc(it.q||'')}">
+      <small>填了會自動帶出地圖和「查介紹」按鈕。${base?'也會取代這項原本的地圖按鈕。':''}</small></label>
+    <label>備註或介紹<textarea id="pe-note" class="field" rows="3" maxlength="300" placeholder="門票、集合點、想買的東西">${esc(it.note||'')}</textarea></label>
+    <label class="check" style="padding:8px 0"><input type="checkbox" id="pe-food" ${it.food?'checked':''}><span>這是餐廳，加上食記按鈕</span></label>
+    <label class="check" style="padding:8px 0"><input type="checkbox" id="pe-key" ${it.key?'checked':''}><span>標成重點，用醒目顏色顯示</span></label>
+    <p id="pe-err" style="margin:6px 0 0;color:#c2264f;font-weight:700;font-size:.85rem"></p></div>`, ()=>{
+    const title = $('#pe-title').value.trim();
+    if(!title){ $('#pe-err').textContent = '請填「要做什麼」。'; return false; }
+    ledger.plan[it.id] = {id:it.id, day:it.day, pos:it.pos, t:$('#pe-t').value.trim(), title, note:$('#pe-note').value.trim(), q:$('#pe-q').value.trim(),
+      food:$('#pe-food').checked, key:$('#pe-key').checked, at:Date.now()};
+    changed();
+  }, '儲存');
+}
+document.getElementById('tab-plan').addEventListener('click', e=>{
+  const q = sel => e.target.closest(sel);
+  if(q('#plan-edit')){ planEdit = !planEdit; renderDay(); return; }
+  if(q('#plan-reset')){ openDlg('<p style="margin:0;font-weight:700">把這天還原成原本的行程？臨時新增和修改的內容都會移除。</p>', ()=>{
+      Object.values(ledger.plan).forEach(r=>{ if(r.day === curDay) ledger.plan[r.id] = isBaseId(r.id) ? {id:r.id, day:r.day, orig:true, at:Date.now()} : {id:r.id, day:r.day, del:true, at:Date.now()}; });
+      changed(); }, '還原'); return; }
+  const items = dayItems(curDay), find = id => items.find(v=>v.id === id);
+  let b;
+  if((b = q('[data-ed]'))){ const it = find(b.dataset.ed); if(it) planForm(it, false); }
+  else if((b = q('[data-add]'))){
+    let pos; const ref = b.dataset.add;
+    if(ref === 'top') pos = (items.length ? items[0].pos : 1000) - 500;
+    else { const i = items.findIndex(v=>v.id === ref); if(i < 0) return; pos = i === items.length-1 ? items[i].pos + 1000 : (items[i].pos + items[i+1].pos)/2; }
+    planForm({id:'x' + uid(), day:curDay, pos}, true);
+  }
+  else if((b = q('[data-mv]'))){
+    const [id, dir] = b.dataset.mv.split(','), i = items.findIndex(v=>v.id === id), j = i + (+dir);
+    if(i < 0 || j < 0 || j >= items.length) return;
+    const A = toRec(items[i]), B = toRec(items[j]); [A.pos, B.pos] = [B.pos, A.pos];
+    if(A.pos === B.pos) A.pos += +dir * 0.5;
+    ledger.plan[A.id] = A; ledger.plan[B.id] = B; changed();
+  }
+  else if((b = q('[data-rm]'))){ const it = find(b.dataset.rm); if(it) askDelete(`刪除「${it.title}」？之後可以用「還原這天」找回原本的行程。`, ()=>{
+      ledger.plan[it.id] = {id:it.id, day:it.day, del:true, at:Date.now()}; changed(); }); }
+});
+$('#days').addEventListener('click', e=>{
+  const b = e.target.closest('.daycard'); if(!b) return;
+  curDay = +b.dataset.i; renderDays(); renderDay();
+});
+function renderCountdown(){
+  const t = todayJST(), ms = 864e5;
+  const diff = Math.round((Date.parse('2026-12-02') - Date.parse(t))/ms);
+  const el = $('#countdown');
+  if(diff > 0) el.innerHTML = `還有<b class="disp">${diff}</b>天出發`;
+  else if(diff >= -4) el.innerHTML = `今天是<b class="disp">DAY ${1-diff}</b>`;
+  else el.innerHTML = `旅程<b class="disp">完成</b>`;
+}
+
+/* ========== GUIDE ========== */
+const osm = (lat,lon) => `https://www.openstreetmap.org/export/embed.html?bbox=${lon-0.006}%2C${lat-0.0035}%2C${lon+0.006}%2C${lat+0.0035}&layer=mapnik&marker=${lat}%2C${lon}`;
+const EMBED_MAP = true;
+const osmLink = (lat,lon) => `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=16/${lat}/${lon}`;
+const GUIDE = [
+ { id:'sofubi', day:'整趟旅程', title:'軟膠是怎麼來的', lead:'ソフビ是「ソフトビニール」的簡稱。這趟旅程有兩天為它而排，先認識它的身世。',
+   body:['1960 年代中期，電視特攝節目在日本掀起怪獸熱。玩具商マルサン（Marusan）在 1966 年前後開始用軟質塑膠做怪獸人偶，孩子可以摔、可以泡澡帶著玩，價格也親民，一下子成為國民玩具。之後由前員工創立的ブルマァク（Bullmark）接手，把這個黃金年代延續到 1970 年代。',
+         '軟膠的做法叫搪膠成型：把液態的塑膠原料倒進金屬模具，加熱讓貼著模具內壁的那層凝固，倒掉多餘原料後趁熱把成品拔出來。所以軟膠是中空的，關節靠熱脹冷縮卡進去，表面留著手工噴塗的痕跡。每一隻都有些微差異，這也是收藏的樂趣。',
+         '2000 年代以後，獨立作家開始自己開模、小量生產，在活動會場或抽選販售，俗稱「インディーズソフビ」。量少、配色常是單次限定，所以才會有整理券、抽選和排隊這些規矩。12/5 的怪獣島就是這一類活動。'],
+   trivia:['想讓卡太緊的關節轉動，用吹風機把接合處吹熱就會變軟。別硬扳。','螢光綠、乳白這類「蓄光」材質照光後會在暗處發亮，是軟膠的經典配色。','長期日曬會讓軟膠褪色、出油，回家後別放在窗邊。'] },
+ { id:'harajuku', day:'12/2 第一天', title:'裏原宿，巷子裡長出來的街頭文化', lead:'從表參道大街轉進巷子，店面突然變小、招牌變低調，這一帶就是「裏原」。',
+   body:['1990 年代初，這片住宅區租金便宜，一群二十出頭的年輕人在這裡開起小店。1993 年，NIGO 與高橋盾合開的「NOWHERE」開幕，加上藤原浩在背後牽線，A BATHING APE、UNDERCOVER 等品牌陸續從這裡出發。滝沢伸介的 NEIGHBORHOOD 也在 1994 年於原宿創立，把機車與軍裝文化帶進街頭服飾。',
+         '當時的做法是少量生產、不打廣告、賣完就沒了，靠雜誌和口耳相傳。排隊、限量、聯名，這些現在習以為常的事，很大一部分是從這幾條巷子開始的。',
+         '第一天抵達後體力有限，這裡的店彼此走路都在十分鐘內，挑兩三間就好。NUBIAN 是選品店，一次能看到很多品牌，所以排在最前面。'],
+   trivia:['這一帶許多店 20:00 就打烊，逛街要排在晚餐前。','貓街（キャットストリート）底下是加了蓋的舊澀谷川，所以路才會彎彎曲曲。'],
+   map:[35.6695,139.7075,'裏原宿一帶'] },
+ { id:'akiba', day:'12/3 第二天', title:'秋葉原，從零件黑市到御宅聖地', lead:'現在的動漫大街，起點是戰後賣真空管的露天攤販。',
+   body:['「秋葉原」的名字來自一座神社。1869 年這一帶發生大火，明治政府清出一片防火空地，並設了鎮火的神社。民眾以為祭祀的是防火之神秋葉大權現，把空地叫作「秋葉之原」，地名就這樣留下來。',
+         '二次大戰後，販售收音機零件的攤商聚集到高架鐵道下，慢慢發展成電器街。家電、音響、個人電腦一路賣過來，1990 年代後期電腦族群帶來了遊戲與動畫的需求，街上的店也跟著換了面貌。',
+         'Mandarake 在秋葉原有兩棟：CoCoo 以玩具為主，是這天的重點；Complex 是八層樓的綜合館。兩間都中午 12:00 才開門，所以先吃午餐再逛正好。'],
+   trivia:['Mandarake 的玻璃櫃商品要請店員開櫃，指著商品說「これを見せてください」就可以。','中古軟膠會標示狀態，看清楚有沒有附吊卡和袋子。','秋葉原到中野搭黃色的中央・總武線各站停車，不用轉車。'],
+   map:[35.6984,139.7731,'秋葉原站周邊'] },
+ { id:'nakano', day:'12/3 第二天', title:'中野 Broadway，住宅大樓裡的收藏迷宮', lead:'一棟 1966 年落成的商住大樓，如今是全世界收藏家都會來的地方。',
+   body:['中野 Broadway 蓋好的時候是很時髦的高級住商複合大樓，樓上是住宅，還有屋頂泳池和庭園，當年住過不少演藝圈名人。底下幾層的商場後來隨著周邊百貨興起而沒落，空出不少小店面。',
+         '1980 年，漫畫家古川益三在這裡開了一間只有兩坪的漫畫舊書店，取名 Mandarake。生意越做越大，店面一格一格往外擴，同好店家也跟著搬進來，整棟樓漸漸變成今天的樣子。現在光是 Mandarake 在樓裡就有二三十個各有主題的小館。',
+         '逛的順序建議從三樓開始往上，軟膠和特攝玩具集中在三、四樓。墓場の画廊也在三樓，12 月有貓咪軟膠的展售企劃。店家大多 20:00 關門，傍晚才到的話時間很緊，秋葉原要準時離開。'],
+   trivia:['一樓的電扶梯直接通到三樓，要去二樓得走樓梯。','很多小店是老闆一個人顧，臨時休息很常見。','拍照前先問店家，不少櫥窗禁止攝影。'],
+   map:[35.7093,139.6657,'中野 Broadway'] },
+ { id:'sensoji', day:'12/4 第三天', title:'淺草寺，東京最老的寺院', lead:'傳說始於一張漁網。西元 628 年，一對漁夫兄弟在隅田川撈起一尊觀音像。',
+   body:['兄弟把觀音像交給地方上的長者，長者把自家改成寺院供奉，這就是淺草寺的開端，比東京這座城市成形早了將近一千年。本尊觀音像是「秘佛」，據說連歷代住持都沒看過，平常沒有公開。',
+         '入口的雷門正式名稱是「風雷神門」，左右立著風神與雷神。原本的門在 1865 年燒毀，之後將近一百年淺草都沒有雷門。現在這座是 1960 年由松下電器創辦人松下幸之助捐贈重建的，據說是為了感謝在這裡祈求病癒。大燈籠高約 3.9 公尺、重約 700 公斤。',
+         '穿過雷門就是仲見世，長約 250 公尺，是日本最古老的商店街之一。人形燒、雷米香、炸饅頭都在這條路上。走到底是寶藏門和本堂，本堂旁的五重塔夜裡會點燈。'],
+   trivia:['走到大燈籠正下方抬頭看，底部刻著一條龍。','淺草寺的籤以「凶」多出名，比例大約三成。抽到凶就綁在旁邊的架子上，把壞運留在寺裡。','常香爐的煙往身上不舒服的地方搧，據說能保佑健康。','仲見世不適合邊走邊吃，買了請在店門口吃完。'],
+   map:[35.7148,139.7967,'淺草寺'] },
+ { id:'koami', day:'12/4 第三天', title:'小網神社，藏在大樓間的強運神社', lead:'社殿很小，夾在日本橋的辦公大樓中間，卻是東京人口中運氣最強的神社。',
+   body:['小網神社有五百多年歷史。「強運」的名聲來自幾段故事：二戰期間，在這裡領過御守出征的當地居民據說全數平安歸來；1945 年東京大空襲把周圍燒成一片，社殿卻留了下來。',
+         '現在的社殿和神樂殿建於 1929 年，用的是檜木，是日本橋一帶少數留存的戰前木造神社建築。拜殿屋簷下左右各有一條龍的雕刻，一條往上、一條往下，稱為「昇龍」與「降龍」。',
+         '境內有一口「銭洗いの井」。把錢放進竹簍用井水沖一沖，再收進錢包，據說財運會變好。這裡同時供奉弁財天，所以也有人專程來求財。'],
+   trivia:['洗過的錢擦乾後留在錢包當種錢，不要花掉。','境內非常小，排隊會沿著巷子繞出去。超過三四十分鐘就只參拜。','御守和朱印的授與時間是 09:00 到 17:00。'],
+   map:[35.6851,139.7779,'小網神社'] },
+ { id:'xmas', day:'12/4 第三天', title:'芝公園的聖誕市集', lead:'熱紅酒、烤香腸和木頭小屋，把德國的冬天搬到東京鐵塔腳下。',
+   body:['東京聖誕市集以德國傳統聖誕市集為範本，從 2015 年開始在東京舉辦。會場中央的聖誕金字塔（Weihnachtspyramide）是一座多層的木造旋轉塔，源自德國東部山區的木工傳統，每一層擺著不同的聖誕場景人偶。',
+         '攤位賣的是德式香腸、燉菜、扭結麵包和熱紅酒（Glühwein）。熱紅酒通常裝在當年限定的馬克杯裡，杯子就是很好的紀念品。',
+         '2026 年的會場之一在芝公園御成門站前廣場，抬頭就是東京鐵塔。隔壁的增上寺是德川將軍家的菩提寺，寺院、鐵塔和聖誕燈飾會出現在同一個畫面裡。12/4 是開幕日，入場採分時段的門票。'],
+   trivia:['12 月晚上的戶外只有四五度，坐著吃東西比走路冷很多，多帶一層。','跟司機說「御成門駅 A6 出口」比說公園名字好找。','最後入場 21:00，最後點餐 21:30。'],
+   map:[35.6592,139.7513,'芝公園 御成門站前'] },
+ { id:'nakame', day:'12/5 第四天', title:'中目黑，河邊的慢步調', lead:'離澀谷只有一站，步調卻慢了一半。',
+   body:['中目黑沿著目黑川展開，兩岸種了大約八百棵櫻花樹，春天是東京最熱門的賞櫻地點。12 月樹葉落盡，河岸反而安靜，適合散步。',
+         '這裡原本是住宅和小工廠混在一起的地方，1990 年代後期設計師和選品店搬進河邊的舊房子，才有了現在的氣氛。2016 年鐵道高架下整修成「中目黒高架下」，長約 700 公尺，書店、餐廳和居酒屋一字排開。',
+         '怪獣島的會場 GALLERY STAND 在東山，從中目黑站走過去大約十分鐘。沒排隊的人可以在車站周邊吃午餐、喝咖啡，下午再會合。晚上的串燒店也在車站附近，整天都不用離開這一區。'],
+   trivia:['居酒屋入座通常會先上一份小菜「お通し」，會算錢，這是座位費的意思。','串燒可以選「塩」或「タレ」。不確定就說「おまかせ」讓師傅決定。'],
+   map:[35.6443,139.6990,'中目黑站周邊'] }
+];
+function renderGuide(){
+  $('#guide-toc').innerHTML = GUIDE.map(g=>`<a class="btn" href="#g-${g.id}">${esc(g.title.split('，')[0])}</a>`).join('');
+  $('#guide').innerHTML = GUIDE.map(g=>`
+    <article class="article" id="g-${g.id}" style="scroll-margin-top:12px">
+      <div class="kicker">${esc(g.day)}</div>
+      <h2>${esc(g.title)}</h2>
+      <p class="lead">${esc(g.lead)}</p>
+      ${g.body.map(p=>`<p>${esc(p)}</p>`).join('')}
+      <div class="trivia"><h4><i class="fa-solid fa-lightbulb"></i> 現場用得上</h4><ul>${g.trivia.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>
+      ${g.map?`${EMBED_MAP?`<iframe class="map" loading="lazy" title="${esc(g.map[2])} 地圖" src="${osm(g.map[0],g.map[1])}"></iframe>`:`<a class="btn btn-sun" target="_blank" rel="noopener" href="${osmLink(g.map[0],g.map[1])}"><i class="fa-solid fa-location-dot"></i>在 OpenStreetMap 看 ${esc(g.map[2])}</a>`}
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap">
+          <small style="color:#4a516b">地圖標記為大約位置</small>
+          <a class="btn" target="_blank" rel="noopener" data-map="${esc(g.map[2]+' 東京')}" href="${maps(g.map[2]+' 東京')}"><i class="fa-solid fa-location-dot"></i>用 Google Maps 開啟</a>
+        </div>`:''}
+    </article><div class="rule" aria-hidden="true"></div>`).join('');
+}
+
+/* ========== WALLET：計算機 ========== */
+let rate = store.get('tk_rate', 0.21);
+let expr = '', lastVal = 0;
+const KEYS = ['C','(',')','⌫','7','8','9','÷','4','5','6','×','1','2','3','−','0','.','=','+'];
+$('#keys').innerHTML = KEYS.map(k=>{
+  const cls = k==='=' ? 'eq' : 'C⌫'.includes(k) ? 'fn' : '÷×−+()'.includes(k) ? 'op' : '';
+  const lab = {C:'清除','⌫':'倒退','÷':'除','×':'乘','−':'減','+':'加','=':'等於'}[k] || k;
+  return `<button type="button" class="${cls}" data-k="${k}" aria-label="${lab}">${k}</button>`;
+}).join('');
+function calc(src){                     // 自己解析四則運算，不用 eval
+  const t = src.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-').replace(/\s+/g,'');
+  if(!t || !/^[0-9+\-*/().]+$/.test(t)) return NaN;
+  let i = 0;
+  const num = ()=>{ const m = /^(\d+\.?\d*|\.\d+)/.exec(t.slice(i)); if(!m) return NaN; i += m[0].length; return parseFloat(m[0]); };
+  const factor = ()=>{ if(t[i] === '-'){ i++; return -factor(); } if(t[i] === '+'){ i++; return factor(); }
+    if(t[i] === '('){ i++; const v = expr(); if(t[i] !== ')') return NaN; i++; return v; } return num(); };
+  const term = ()=>{ let v = factor(); while(t[i] === '*' || t[i] === '/'){ const op = t[i++], r = factor(); v = op === '*' ? v*r : v/r; } return v; };
+  const expr = ()=>{ let v = term(); while(t[i] === '+' || t[i] === '-'){ const op = t[i++], r = term(); v = op === '+' ? v+r : v-r; } return v; };
+  const v = expr();
+  return (i === t.length && isFinite(v)) ? v : NaN;
+}
+function showCalc(final){
+  $('#c-expr').textContent = expr || '輸入算式，例如 500+200×3';
+  const v = calc(expr);
+  if(!isNaN(v)){ lastVal = v; $('#c-jpy').textContent = yen(v); $('#c-twd').textContent = '約 ' + ntd(v*rate); }
+  else if(final && expr){ $('#c-jpy').textContent = '算式不完整'; $('#c-twd').textContent = '檢查括號或運算符號'; }
+  else if(!expr){ lastVal = 0; $('#c-jpy').textContent = '¥0'; $('#c-twd').textContent = '約 NT$0'; }
+}
+$('#keys').addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  const k = b.dataset.k;
+  if(k==='C') expr = '';
+  else if(k==='⌫') expr = expr.slice(0,-1);
+  else if(k==='='){ const v = calc(expr); if(!isNaN(v)){ showCalc(true); expr = String(Math.round(v*100)/100); $('#c-expr').textContent = '= ' + expr; return; } showCalc(true); return; }
+  else expr += k;
+  showCalc(false);
+});
+/* ========== 即時匯率 ========== */
+const FX_SRC = [
+  ['https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/jpy.min.json', j=>({rate:j.jpy.twd, date:j.date})],
+  ['https://latest.currency-api.pages.dev/v1/currencies/jpy.min.json', j=>({rate:j.jpy.twd, date:j.date})],
+  ['https://open.er-api.com/v6/latest/JPY', j=>({rate:j.rates.TWD, date:new Date(j.time_last_update_unix*1000).toISOString().slice(0,10)})]
+];
+let fx = store.get('tk_fx', null);       // {date, at, manual}
+let fxBusy = false;
+async function fetchFx(){
+  for(const [u, pick] of FX_SRC){
+    try{
+      const ctl = new AbortController(), tm = setTimeout(()=>ctl.abort(), 6000);
+      const r = await fetch(u, {cache:'no-store', signal:ctl.signal}); clearTimeout(tm);
+      if(r.ok){ const v = pick(await r.json()); if(v.rate > 0) return v; }
+    }catch(e){}
+  }
+  if(typeof window.__fxImport === 'function'){   // 發布頁面擋 fetch 時的備用路徑
+    try{ const m = await Promise.race([window.__fxImport(FX_SRC[0][0]), new Promise((_,rej)=>setTimeout(rej, 6000))]);
+      const v = FX_SRC[0][1](m.default); if(v.rate > 0) return v; }catch(e){}
+  }
+  return null;
+}
+function renderFx(msg){
+  $('#rate').value = rate;
+  let t;
+  if(msg) t = msg;
+  else if(fx && fx.manual) t = '手動設定的匯率。按「更新匯率」改回自動。';
+  else if(fx && fx.date) t = `自動匯率，資料日期 ${fx.date}。`;
+  else t = '預設匯率，連上網路後會自動更新。';
+  $('#rate-info').textContent = t;
+}
+function applyRate(){ showCalc(false); renderLedger(); updateExpTwd(); }
+async function refreshFx(){
+  if(fxBusy) return; fxBusy = true; renderFx('更新匯率中。');
+  const v = await fetchFx(); fxBusy = false;
+  if(v){ rate = Math.round(v.rate*10000)/10000; fx = {date:v.date, at:Date.now(), manual:false}; store.set('tk_rate', rate); store.set('tk_fx', fx); renderFx(); applyRate(); }
+  else renderFx(`抓不到最新匯率，先沿用 ${rate}。可以直接手動輸入。`);
+}
+$('#rate').addEventListener('change', e=>{
+  const v = parseFloat(e.target.value);
+  if(v > 0){ rate = v; fx = {manual:true, at:Date.now()}; store.set('tk_rate', rate); store.set('tk_fx', fx); renderFx(); applyRate(); }
+  else e.target.value = rate;
+});
+$('#rate-refresh').addEventListener('click', refreshFx);
+$('#c-to-expense').addEventListener('click', ()=>{
+  if(lastVal > 0){ $('#exp-amt').value = Math.round(lastVal); updateExpTwd(); $('#exp-name').focus(); $('#exp-form').scrollIntoView({behavior:'smooth',block:'center'}); }
+});
+
+/* ========== 對話框 ========== */
+let dlgYes = null;
+function openDlg(html, onYes, yesLabel){
+  $('#dlg-body').innerHTML = html; dlgYes = onYes || null;
+  $('#dlg-yes').hidden = !onYes; $('#dlg-yes').textContent = yesLabel || '刪除'; $('#dlg-close').textContent = onYes ? '取消' : '關閉';
+  const d = $('#dlg'); if(d.showModal){ if(!d.open) d.showModal(); } else d.setAttribute('open','');
+}
+const notice = msg => openDlg(`<p style="margin:0;font-weight:700">${esc(msg)}</p>`);
+const askDelete = (msg, fn) => openDlg(`<p style="margin:0;font-weight:700">${esc(msg)}</p>`, fn);
+$('#dlg-yes').addEventListener('click', ()=>{ const f = dlgYes; if(f && f() === false) return; $('#dlg').close(); });
+$('#dlg-close').addEventListener('click', ()=>$('#dlg').close());
+$('#dlg').addEventListener('click', e=>{ if(e.target === $('#dlg')) $('#dlg').close(); });
+
+/* ========== App 內地圖視窗（單機檔才啟用）========== */
+function openSheet(q){
+  const ext = maps(q);
+  $('#sheet-title').textContent = q;
+  $('#sheet-foot').innerHTML = `<a class="btn btn-sun" target="_blank" rel="noopener" href="${ext}"><i class="fa-solid fa-up-right-from-square"></i>用 Google Maps App 開啟</a>
+    <button class="btn" type="button" data-copy="${esc(q)}"><i class="fa-solid fa-copy"></i>複製地址</button>`;
+  const f = $('#sheet-frame');
+  if(navigator.onLine === false){ f.removeAttribute('src'); f.srcdoc = `<p style="font:700 18px/1.6 sans-serif;padding:24px;color:#1D2440">目前沒有網路，地圖載不出來。<br>地址：${esc(q)}</p>`; }
+  else { f.removeAttribute('srcdoc'); f.src = 'https://www.google.com/maps?q=' + encodeURIComponent(q) + '&z=16&hl=zh-TW&output=embed'; }
+  const d = $('#sheet'); if(d.showModal){ if(!d.open) d.showModal(); } else d.setAttribute('open','');
+}
+function closeSheet(){ $('#sheet').close(); $('#sheet-frame').removeAttribute('src'); }
+$('#sheet-close').addEventListener('click', closeSheet);
+$('#sheet').addEventListener('click', e=>{ if(e.target === $('#sheet')) closeSheet(); const c = e.target.closest('[data-copy]'); if(c) copyText(c.dataset.copy, c); });
+document.addEventListener('click', e=>{
+  const a = e.target.closest('a[data-map]');
+  if(a && EMBED_MAP){ e.preventDefault(); openSheet(a.dataset.map); }
+});
+
+/* ========== 共同帳本：資料與合併 ========== */
+const N = 4;
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+const emptyLedger = () => ({v:1, members:['成員A','成員B','成員C','成員D'], mAt:0, items:[], del:[], plan:{}});
+const okIdx = i => Number.isInteger(i) && i >= 0 && i < N;
+function cleanLedger(o){
+  const out = emptyLedger();
+  if(!o || typeof o !== 'object') return out;
+  if(Array.isArray(o.members) && o.members.length === N) out.members = o.members.map((m,i)=>String(m||'').trim().slice(0,12) || out.members[i]);
+  out.mAt = Number(o.mAt) || 0;
+  out.del = Array.isArray(o.del) ? o.del.filter(x=>typeof x === 'string').slice(-2000) : [];
+  (Array.isArray(o.items) ? o.items : []).forEach(x=>{
+    if(!x || typeof x.id !== 'string' || !x.id) return;
+    const amt = Math.round(Number(x.amt)); if(!(amt > 0) || amt > 1e8 || !okIdx(x.payer)) return;
+    const at = typeof x.at === 'string' ? x.at.slice(0,30) : '';
+    if(x.t === 'p'){ if(!okIdx(x.to) || x.to === x.payer) return; out.items.push({id:x.id.slice(0,24), t:'p', amt, payer:x.payer, to:x.to, at}); }
+    else { const split = [...new Set((Array.isArray(x.split) ? x.split : []).filter(okIdx))].sort(); if(!split.length) return;
+      out.items.push({id:x.id.slice(0,24), t:'e', name:String(x.name||'').slice(0,40) || '未命名', amt, payer:x.payer, split, at}); }
+  });
+  const P = o.plan && typeof o.plan === 'object' ? o.plan : {}, str = (v,n) => String(v == null ? '' : v).slice(0,n);
+  Object.keys(P).slice(0,400).forEach(k=>{
+    const r = P[k]; if(!r || typeof r.id !== 'string' || r.id !== k || k.length > 24) return;
+    const day = Number(r.day), at = Number(r.at) || 0; if(!Number.isInteger(day) || day < 0 || day > 4) return;
+    if(r.orig){ out.plan[k] = {id:k, day, orig:true, at}; return; }
+    if(r.del){ out.plan[k] = {id:k, day, del:true, at}; return; }
+    const pos = Number(r.pos), title = str(r.title,40).trim(); if(!isFinite(pos) || !title) return;
+    out.plan[k] = {id:k, day, pos, t:str(r.t,20), title, note:str(r.note,300), q:str(r.q,80), food:!!r.food, key:!!r.key, at};
+  });
+  return out;
+}
+function mergeLedger(a, b){
+  const out = emptyLedger(), newer = (b.mAt||0) > (a.mAt||0) ? b : a;
+  out.members = newer.members.slice(); out.mAt = newer.mAt || 0;
+  out.del = [...new Set([...a.del, ...b.del])];
+  const gone = new Set(out.del), map = new Map();
+  [...a.items, ...b.items].forEach(x=>{ if(!gone.has(x.id)) map.set(x.id, x); });
+  out.items = [...map.values()].sort((x,y)=>(y.at||'').localeCompare(x.at||'') || y.id.localeCompare(x.id));
+  [a.plan, b.plan].forEach(P=>Object.values(P).forEach(r=>{ const c = out.plan[r.id]; if(!c || r.at > c.at) out.plan[r.id] = r; }));
+  return out;
+}
+const sig = l => JSON.stringify([l.members, l.items.map(x=>x.id).sort(), l.del.slice().sort(), Object.values(l.plan).map(r=>r.id + ':' + r.at).sort()]);
+let shared = emptyLedger(), hasShared = false;
+try{ const raw = JSON.parse(document.getElementById('shared').textContent); if(raw){ shared = cleanLedger(raw); hasShared = true; } }catch(e){}
+let photos = store.get('tk_photos', {});
+let me = store.get('tk_me', null); if(!okIdx(me)) me = null;
+let ledger = cleanLedger(store.get('tk_ledger', null));
+(function migrateOld(){            // 舊版單機記帳資料轉進來
+  const old = store.get('tk_expenses', null); if(!Array.isArray(old) || !old.length) return;
+  old.forEach(x=>{ const id = 'o' + x.id; ledger.items.push({id, t:'e', name:String(x.name||''), amt:x.amt, payer:0, split:[0,1,2,3], at:x.at||''}); if(x.photo) photos[id] = x.photo; });
+  ledger = cleanLedger(ledger); store.set('tk_photos', photos); try{ localStorage.removeItem('tk_expenses'); }catch(e){}
+})();
+ledger = mergeLedger(ledger, shared);
+const saveLedger = () => store.set('tk_ledger', ledger);
+saveLedger();
+const nameOf = i => ledger.members[i] || '成員';
+
+/* ========== 共同帳本：分帳計算 ========== */
+function balances(){
+  const paid = Array(N).fill(0), share = Array(N).fill(0), net = Array(N).fill(0); let total = 0;
+  ledger.items.forEach(x=>{
+    if(x.t === 'p'){ net[x.payer] += x.amt; net[x.to] -= x.amt; return; }
+    total += x.amt; paid[x.payer] += x.amt; net[x.payer] += x.amt;
+    x.split.forEach(i=>{ share[i] += x.amt / x.split.length; net[i] -= x.amt / x.split.length; });
+  });
+  return {paid, share, net, total};
+}
+function transfers(net){                 // 最大債務人對最大債權人，轉帳次數最少
+  const c = [], d = [];
+  net.forEach((n,i)=>{ const r = Math.round(n); if(r > 0) c.push([i,r]); else if(r < 0) d.push([i,-r]); });
+  c.sort((a,b)=>b[1]-a[1]); d.sort((a,b)=>b[1]-a[1]);
+  const out = []; let i = 0, j = 0;
+  while(i < d.length && j < c.length){
+    const m = Math.min(d[i][1], c[j][1]);
+    if(m > 0) out.push({from:d[i][0], to:c[j][0], amt:m});
+    d[i][1] -= m; c[j][1] -= m; if(!d[i][1]) i++; if(!c[j][1]) j++;
+  }
+  return out;
+}
+
+/* ========== 共同帳本：畫面 ========== */
+let pendingPhoto = null, splitSel = [0,1,2,3];
+function compress(file){
+  return new Promise((res, rej)=>{
+    const url = URL.createObjectURL(file), img = new Image();
+    img.onload = ()=>{
+      const max = 480, k = Math.min(1, max/Math.max(img.width, img.height));
+      const c = document.createElement('canvas');
+      c.width = Math.round(img.width*k); c.height = Math.round(img.height*k);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url);
+      res(c.toDataURL('image/jpeg', 0.6));
+    };
+    img.onerror = ()=>{ URL.revokeObjectURL(url); rej(); };
+    img.src = url;
+  });
+}
+async function onPhoto(e){
+  const f = e.target.files[0]; e.target.value = '';
+  if(!f) return;
+  try{ pendingPhoto = await compress(f); $('#exp-prev').src = pendingPhoto; $('#exp-prev').hidden = false; $('#exp-clear').hidden = false; }
+  catch(err){ notice('這張照片讀不出來，換一張試試。'); }
+}
+$('#exp-cam').addEventListener('change', onPhoto);
+$('#exp-file').addEventListener('change', onPhoto);
+function clearPhoto(){ pendingPhoto = null; $('#exp-prev').hidden = true; $('#exp-clear').hidden = true; }
+$('#exp-clear').addEventListener('click', clearPhoto);
+function updateExpTwd(){
+  const v = parseFloat($('#exp-amt').value);
+  $('#exp-twd').textContent = v > 0 ? '約 ' + ntd(v*rate) : '';
+  $('#exp-each').textContent = splitSel.length ? (v > 0 ? `${splitSel.length} 人分，每人約 ${yen(v/splitSel.length)}` : `${splitSel.length} 人分攤`) : '至少選一個人';
+}
+$('#exp-amt').addEventListener('input', updateExpTwd);
+function renderForm(){
+  // 元素只建立一次，之後就地更新，避免點擊途中被換掉
+  const sel = $('#exp-payer'), sp = $('#exp-split'), mp = $('#me-pick');
+  if(!sel.options.length){
+    sel.innerHTML = ledger.members.map((m,i)=>`<option value="${i}"></option>`).join(''); sel.value = String(me ?? 0);
+    sp.innerHTML = mp.innerHTML = ledger.members.map((m,i)=>`<button type="button" data-i="${i}"></button>`).join('');
+  }
+  ledger.members.forEach((m,i)=>{
+    const t = m + (i === me ? '（我）' : '');
+    if(sel.options[i].textContent !== t) sel.options[i].textContent = t;
+    if(sp.children[i].textContent !== m) sp.children[i].textContent = m;
+    if(mp.children[i].textContent !== m) mp.children[i].textContent = m;
+    sp.children[i].setAttribute('aria-pressed', splitSel.includes(i));
+    mp.children[i].setAttribute('aria-pressed', i === me);
+  });
+  const box = $('#mem-inputs');
+  if(!box.children.length) box.innerHTML = ledger.members.map((m,i)=>`<input class="field" data-i="${i}" maxlength="12" aria-label="成員 ${i+1} 的名字">`).join('');
+  [...box.children].forEach((el,i)=>{ if(el !== document.activeElement && el.value !== ledger.members[i]) el.value = ledger.members[i]; });
+  updateExpTwd();
+}
+$('#exp-split').addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b) return; const i = +b.dataset.i;
+  splitSel = splitSel.includes(i) ? splitSel.filter(v=>v !== i) : [...splitSel, i].sort(); renderForm();
+});
+$('#me-pick').addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  me = +b.dataset.i; store.set('tk_me', me); $('#exp-payer').value = String(me); renderLedger();
+});
+$('#mem-inputs').addEventListener('change', e=>{
+  const i = +e.target.dataset.i, v = e.target.value.trim().slice(0,12); if(!v){ e.target.value = ledger.members[i]; return; }
+  ledger.members[i] = v; ledger.mAt = Date.now(); changed();
+});
+function changed(){ saveLedger(); renderLedger(); renderDay(); queueSync(); }
+$('#exp-form').addEventListener('submit', e=>{
+  e.preventDefault();
+  const name = $('#exp-name').value.trim(), amt = Math.round(parseFloat($('#exp-amt').value));
+  if(!name || !(amt > 0)) return;
+  if(!splitSel.length){ notice('至少選一個要分攤的人。'); return; }
+  const id = uid();
+  ledger.items.unshift({id, t:'e', name, amt, payer:+$('#exp-payer').value, split:splitSel.slice(), at:new Date().toISOString()});
+  if(pendingPhoto){ photos[id] = pendingPhoto; if(!store.set('tk_photos', photos)){ delete photos[id]; notice('手機儲存空間滿了，這筆已記下但沒有存照片。'); } }
+  $('#exp-name').value = ''; $('#exp-amt').value = ''; clearPhoto(); splitSel = [0,1,2,3];
+  changed();
+});
+function renderLedger(){
+  renderForm();
+  const {paid, share, net, total} = balances(), tr = transfers(net);
+  $('#sum-jpy').textContent = yen(total); $('#sum-twd').textContent = ntd(total*rate);
+  $('#bal').innerHTML = `<span></span><span style="color:#4a516b">先墊付</span><span style="color:#4a516b">應分攤</span>` +
+    ledger.members.map((m,i)=>`<b>${esc(m)}</b><span>${yen(paid[i])}</span><span>${yen(share[i])}</span>`).join('');
+  $('#settle').innerHTML = tr.length ? tr.map(t=>`
+    <div class="pay">
+      <div class="names">${esc(nameOf(t.from))} <i class="fa-solid fa-arrow-right" aria-label="給"></i> ${esc(nameOf(t.to))}
+        <div><span class="disp" style="font-size:1.25rem">${yen(t.amt)}</span> <span style="font-size:.85rem;color:#4a516b">${ntd(t.amt*rate)}</span></div></div>
+      <button class="btn btn-sun" data-pay="${t.from},${t.to},${t.amt}">已付清</button>
+    </div>`).join('')
+    : `<p style="margin:12px 0;font-size:.92rem">${ledger.items.length ? '目前都結清了，沒有人欠錢。' : '還沒有帳。記下第一筆，這裡會算出誰要給誰多少。'}</p>`;
+  $('#exp-list').innerHTML = ledger.items.length ? ledger.items.map(x=>{
+    const d = new Date(x.at), when = isNaN(d) ? '' : `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+    if(x.t === 'p') return `<div class="slab-flat" style="padding:10px;display:flex;gap:10px;align-items:center;background:var(--paper)">
+      <div style="width:56px;height:56px;border:2px solid var(--ink);border-radius:10px;display:grid;place-content:center;background:var(--sun);flex:0 0 auto"><i class="fa-solid fa-handshake"></i></div>
+      <div style="flex:1;min-width:0"><div style="font-weight:700">${esc(nameOf(x.payer))} 還給 ${esc(nameOf(x.to))}</div><div style="font-size:.78rem;color:#4a516b">${when}</div></div>
+      <div class="disp" style="font-size:1.05rem">${yen(x.amt)}</div>
+      <button data-del="${x.id}" aria-label="刪除這筆還款" style="border:0;background:none;padding:8px;color:#9aa1b8"><i class="fa-solid fa-trash"></i></button></div>`;
+    const who = x.split.length === N ? '四人分' : x.split.map(nameOf).join('、') + ' 分';
+    return `<div class="slab-flat" style="padding:10px;display:flex;gap:10px;align-items:center">
+      ${photos[x.id] ? `<button data-view="${x.id}" aria-label="放大 ${esc(x.name)} 的照片" style="padding:0;border:0;background:none;flex:0 0 auto"><img src="${photos[x.id]}" alt="" style="width:56px;height:56px;object-fit:cover;border:2px solid var(--ink);border-radius:10px;display:block"></button>`
+                : `<div style="width:56px;height:56px;border:2px dashed #9aa1b8;border-radius:10px;display:grid;place-content:center;color:#9aa1b8;flex:0 0 auto"><i class="fa-solid fa-receipt"></i></div>`}
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(x.name)}</div>
+        <div style="font-size:.78rem;color:#4a516b">${esc(nameOf(x.payer))} 付，${esc(who)}</div>
+        <div style="font-size:.78rem;color:#4a516b">${when}</div>
+      </div>
+      <div style="text-align:right;flex:0 0 auto"><div class="disp" style="font-size:1.05rem">${yen(x.amt)}</div><div style="font-size:.8rem;font-weight:700;color:#4a516b">${ntd(x.amt*rate)}</div></div>
+      <button data-del="${x.id}" aria-label="刪除 ${esc(x.name)}" style="border:0;background:none;padding:8px;color:#9aa1b8"><i class="fa-solid fa-trash"></i></button>
+    </div>`; }).join('')
+  : `<p style="margin:0;font-size:.9rem;color:#4a516b">還沒有紀錄。</p>`;
+  renderSync();
+}
+const renderExpenses = renderLedger;
+$('#settle').addEventListener('click', e=>{
+  const b = e.target.closest('[data-pay]'); if(!b) return;
+  const [from, to, amt] = b.dataset.pay.split(',').map(Number);
+  openDlg(`<p style="margin:0;font-weight:700">${esc(nameOf(from))} 已經把 ${yen(amt)} 給 ${esc(nameOf(to))} 了嗎？</p>`, ()=>{
+    ledger.items.unshift({id:uid(), t:'p', amt, payer:from, to, at:new Date().toISOString()}); changed();
+  }, '已付清');
+});
+$('#exp-list').addEventListener('click', e=>{
+  const del = e.target.closest('[data-del]'), view = e.target.closest('[data-view]');
+  if(del){ const x = ledger.items.find(v=>v.id === del.dataset.del); if(x) askDelete(x.t === 'p' ? '刪除這筆還款紀錄？' : `刪除「${x.name}」？大家的帳本同步後也會刪掉。`, ()=>{
+    ledger.items = ledger.items.filter(v=>v !== x); ledger.del.push(x.id); if(photos[x.id]){ delete photos[x.id]; store.set('tk_photos', photos); } changed(); }); }
+  if(view){ const x = ledger.items.find(v=>v.id === view.dataset.view); if(x) openDlg(`<img src="${photos[x.id]}" alt="${esc(x.name)}" style="width:100%;border-radius:10px;display:block"><p style="margin:10px 0 0;font-weight:700">${esc(x.name)}　${yen(x.amt)}</p>`); }
+});
+
+/* ========== 共同帳本：同步 ========== */
+const HEAD = "<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\">\n<meta name=\"theme-color\" content=\"#1D2440\">\n<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n<title>TOKYO 2026 旅行小幫手<\/title>\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+TC:wght@400;500;700;900&display=swap\" rel=\"stylesheet\">\n<script src=\"https://cdn.tailwindcss.com\"><\/script>\n<script>\n  if (window.tailwind) tailwind.config = {\n    theme: { extend: {\n      colors: { ink:'#1D2440', paper:'#F2F5EE', glow:'#C9F2C7', pink:'#FF5C8A', teal:'#12A594', sun:'#FFD23F', sky:'#4C6FFF' },\n      fontFamily: { disp:['\"Dela Gothic One\"','\"Noto Sans TC\"','sans-serif'], body:['\"Noto Sans TC\"','system-ui','sans-serif'] }\n    } }\n  }\n<\/script>\n<script>window.__fxImport = function(u){ return import(u, {with:{type:\"json\"}}); };<\/script>\n";
+function buildDoc(state){                // 把目前帳本寫進新的一版頁面
+  const json = JSON.stringify(state).replace(/</g, '\\u003c');
+  return '<!DOCTYPE html>\n<html lang="zh-Hant">\n<head>\n' + HEAD + '<style id="css">' + document.getElementById('css').textContent + '</style>\n</head>\n<body>\n' +
+    '<template id="shell">' + document.getElementById('shell').innerHTML + '</template>\n' +
+    '<script id="shared" type="application/json">' + json + '</' + 'script>\n' +
+    '<script id="app">' + document.getElementById('app').textContent + '</' + 'script>\n</body>\n</html>\n';
+}
+let art = null, syncMode = 'none', syncTimer = null, syncErr = '';   // none | ready | saving | readonly
+const pending = () => sig(ledger) !== sig(shared);
+function renderSync(){
+  const btn = $('#sync-now'); btn.hidden = !(art && syncMode !== 'readonly' && syncMode !== 'saving' && pending());
+  let m;
+  if(syncMode === 'saving') m = '同步中，頁面會自動重新整理。';
+  else if(syncMode === 'readonly') m = '你目前只能看共同帳本，新增的帳先存在這支手機。請用同步碼傳給有編輯權限的人，或請主揪開放編輯。';
+  else if(art) m = pending() ? '這支手機有還沒上傳的變更。' : '帳本和行程修改都已同步。每次打開頁面都會拿到最新版本。';
+  else m = hasShared ? '共同帳本已載入。這支手機新增的帳，用同步碼傳給朋友合併。' : '帳本存在這支手機，沒有網路也能記。用同步碼和朋友合併。';
+  $('#sync-msg').textContent = m + (syncErr ? ' ' + syncErr : '');
+}
+async function doSync(){
+  if(!art || syncMode === 'saving' || !pending()) return;
+  syncMode = 'saving'; syncErr = ''; renderSync();
+  try{ await art.publish(buildDoc(ledger)); shared = cleanLedger(ledger); syncMode = 'ready'; }
+  catch(e){ const code = String((e && (e.code || e.message)) || e);
+    if(/not_granted|not_writer/.test(code)) syncMode = 'readonly';
+    else { syncMode = 'ready'; syncErr = /conflict/.test(code) ? '剛好有人同時更新，頁面重新整理後再按一次同步。' : '這次沒同步成功，稍後再按一次。'; } }
+  renderSync();
+}
+function queueSync(){ if(!art || syncMode === 'readonly') return; clearTimeout(syncTimer); syncTimer = setTimeout(doSync, 1500); }
+$('#sync-now').addEventListener('click', doSync);
+try{ if(window.claude && typeof window.claude.use === 'function') window.claude.use('artifact').then(a=>{ if(a){ art = a; syncMode = 'ready'; renderSync(); } }, ()=>{}); }catch(e){}
+/* ========== 下載離線版 ========== */
+const offlineDoc = () => buildDoc(ledger).replace(/const EMBED_MAP = (?:false|true);/, 'const EMBED_MAP = ' + 'true;');
+let dlCap = null;
+const inArtifact = !!(window.claude && typeof window.claude.use === 'function');
+if(inArtifact){
+  $('#dl-btn').disabled = true; $('#dl-msg').textContent = '準備中。';
+  const off = ()=>{ $('#dl-btn').hidden = true; $('#dl-msg').textContent = '這個瀏覽環境不能直接下載。請主揪把離線檔傳到群組。'; };
+  try{ window.claude.use('downloads').then(d=>{ if(d){ dlCap = d; $('#dl-btn').disabled = false; $('#dl-msg').textContent = ''; } else off(); }, off); }catch(e){ off(); }
+}
+$('#dl-btn').addEventListener('click', async ()=>{
+  const html = offlineDoc(), name = 'tokyo-2026.html';
+  if(dlCap){
+    try{ await dlCap.save({filename:name, data:html}); $('#dl-msg').textContent = '已交給手機儲存。到「檔案」或下載項目找 tokyo-2026.html，用瀏覽器開啟。'; }
+    catch(e){ const c = e && e.code; $('#dl-msg').textContent = c === 'declined' ? '已取消下載。' : c === 'rate_limited' ? '請稍等一下再按一次。' : '這裡沒辦法下載。請主揪把離線檔傳到群組。'; }
+    return;
+  }
+  try{ const url = URL.createObjectURL(new Blob([html], {type:'text/html'})), a = document.createElement('a');
+    a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url), 4000);
+    $('#dl-msg').textContent = '已開始下載。'; }catch(e){ $('#dl-msg').textContent = '下載沒有成功，再按一次試試。'; }
+});
+const toCode = l => 'TK1.' + btoa(unescape(encodeURIComponent(JSON.stringify({members:l.members, mAt:l.mAt, items:l.items, del:l.del, plan:l.plan}))));
+function fromCode(txt){
+  const m = String(txt).replace(/\s+/g,'').match(/TK1\.([A-Za-z0-9+\/=]+)/); if(!m) return null;
+  try{ return cleanLedger(JSON.parse(decodeURIComponent(escape(atob(m[1]))))); }catch(e){ return null; }
+}
+$('#sync-copy').addEventListener('click', e=>copyText(toCode(ledger), e.currentTarget));
+$('#sync-paste').addEventListener('click', ()=>{
+  openDlg(`<p style="margin:0 0 8px;font-weight:700">把朋友傳來的同步碼貼在這裡</p><textarea id="code-in" class="field" rows="4" placeholder="TK1.…" aria-label="同步碼"></textarea><p id="code-err" style="margin:6px 0 0;color:#c2264f;font-weight:700;font-size:.85rem"></p>`, ()=>{
+    const got = fromCode($('#code-in').value);
+    if(!got){ $('#code-err').textContent = '這不是完整的同步碼。請朋友重新複製一次，整段貼上。'; return false; }
+    const before = ledger.items.length; ledger = mergeLedger(ledger, got); changed();
+    setTimeout(()=>notice(`合併完成，帳本現在共有 ${ledger.items.length} 筆（原本 ${before} 筆），行程修改也一併更新了。`), 50);
+  }, '合併');
+});
+
+/* ========== LISTS ========== */
+const CHECK = [
+ { h:'最優先，現在就確認', items:[
+   ['a1','核對每人護照、機票英文姓名與護照效期'],
+   ['a2','確認 12/2 tonkatsu.jp 有沒有開（當月第一個週三可能休）'],
+   ['a3','確認 12/5 怪獣島的販售辦法（主辦與 MUTEEURO 公告）'],
+   ['a4','確認 12/6 機場專車：四人、行李件數尺寸、上車點、預計抵達時間'] ]},
+ { h:'訂位與預約', items:[
+   ['b1','訂 12/3 肉屋横丁四人放題，建議 12:30'],
+   ['b2','訂 12/4 牛たんの檸檬 淺草店，建議 12:30'],
+   ['b3','訂 12/5 とりまち四人桌 20:30，問清楚延誤與取消規定'],
+   ['b4','訂 12/6 焼肉うしごろ 12:00 四人桌，含牛舌的午間套餐'],
+   ['b5','預約 Busta 新宿佐川寄放四件行李，10:30 前後'],
+   ['b6','買 12/4 芝公園聖誕市集 19:00 門票四張'],
+   ['b7','預約 12/4 TANAGOKORO 四人茶席 16:30'],
+   ['b8','向房東確認入住方式、廚房鍋具、垃圾分類、安靜時段'] ]},
+ { h:'每個人的隨身物', items:[
+   ['c1','護照'],['c2','去回程電子機票'],['c3','住宿證明（Airbnb 地址與訂單截圖）'],
+   ['c4','信用卡與少量日幣現金'],['c5','旅遊保險'],['c6','eSIM 或網卡，確認可用'],
+   ['c7','照上面步驟填好 Visit Japan Web，QR Code 截圖備份'],['c8','下載航空公司 App、離線地圖'],
+   ['c9','行動電源（最多 2 個、每個 100Wh 以下，放隨身行李）'],
+   ['c10','保暖外套、中層、圍巾或帽子'],['c11','好走防滑的鞋、可收納雨傘'],
+   ['c12','可折疊購物袋與緩衝材，裝軟膠用'],['c13','想買的軟膠清單與照片，存離線相簿'] ]},
+ { h:'四個人一起', items:[
+   ['d1','建立群組，分享行程與集合地點'],['d2','選一位主聯絡人和一位替補'],
+   ['d3','量好每件行李的長寬高，確認託運額度'],['d4','把房東、司機、保險電話存進備忘錄'] ]}
+];
+let checked = store.get('tk_checked', {});
+let customChecks = store.get('tk_custom_checks', []);
+function renderChecks(){
+  const groups = CHECK.concat(customChecks.length ? [{h:'自己加的', items: customChecks.map(c=>[c.id, c.text]), custom:true}] : []);
+  let total = 0, done = 0;
+  $('#checklists').innerHTML = groups.map(g=>`
+    <div><h3 style="font-size:1rem;margin-bottom:6px">${esc(g.h)}</h3>
+    <div class="slab-flat">${g.items.map(([id,text])=>{ total++; if(checked[id]) done++;
+      return `<label class="check"><input type="checkbox" data-id="${id}" ${checked[id]?'checked':''}><span style="flex:1">${esc(text)}</span>${g.custom?`<button type="button" data-rm="${id}" aria-label="刪除 ${esc(text)}" style="border:0;background:none;color:#9aa1b8;padding:2px 4px"><i class="fa-solid fa-xmark"></i></button>`:''}</label>`; }).join('')}</div></div>`).join('');
+  $('#ck-bar').style.width = (total ? done/total*100 : 0) + '%';
+  $('#ck-num').textContent = `${done} / ${total} 完成`;
+}
+$('#checklists').addEventListener('change', e=>{
+  if(e.target.matches('input[type=checkbox]')){ checked[e.target.dataset.id] = e.target.checked; store.set('tk_checked', checked); renderChecks(); }
+});
+$('#checklists').addEventListener('click', e=>{
+  const rm = e.target.closest('[data-rm]'); if(!rm) return;
+  e.preventDefault();
+  customChecks = customChecks.filter(c=>c.id !== rm.dataset.rm); delete checked[rm.dataset.rm];
+  store.set('tk_custom_checks', customChecks); store.set('tk_checked', checked); renderChecks();
+});
+$('#ck-form').addEventListener('submit', e=>{
+  e.preventDefault(); const t = $('#ck-new').value.trim(); if(!t) return;
+  customChecks.push({id:'u'+Date.now(), text:t}); store.set('tk_custom_checks', customChecks); $('#ck-new').value = ''; renderChecks();
+});
+
+let memos = store.get('tk_memos', []);
+function linkify(text){
+  const re = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/gi;
+  let out = '', last = 0, m;
+  while((m = re.exec(text))){
+    out += esc(text.slice(last, m.index));
+    const raw = m[0].replace(/[),.。，、！？!?]+$/,''); re.lastIndex = m.index + raw.length;
+    const href = raw.startsWith('http') ? raw : 'https://' + raw;
+    let host = raw; try{ host = new URL(href).hostname.replace(/^www\./,''); }catch(e){}
+    out += `<a class="btn btn-sun" style="margin:4px 0;max-width:100%" target="_blank" rel="noopener noreferrer" href="${esc(href)}"><i class="fa-solid fa-link"></i><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(host)}</span></a>`;
+    last = m.index + raw.length;
+  }
+  return (out + esc(text.slice(last))).replace(/\n/g,'<br>');
+}
+function renderMemos(){
+  $('#memo-list').innerHTML = memos.length ? memos.map(m=>`
+    <div class="slab-flat" style="padding:12px 14px;display:flex;gap:10px;align-items:flex-start">
+      <div style="flex:1;min-width:0;word-break:break-word">${linkify(m.text)}</div>
+      <button data-del="${m.id}" aria-label="刪除這則備忘" style="border:0;background:none;padding:6px;color:#9aa1b8"><i class="fa-solid fa-trash"></i></button>
+    </div>`).join('') : `<p style="margin:0;font-size:.9rem;color:#4a516b">還沒有備忘。</p>`;
+}
+$('#memo-form').addEventListener('submit', e=>{
+  e.preventDefault(); const t = $('#memo-text').value.trim(); if(!t) return;
+  memos.unshift({id:Date.now(), text:t}); store.set('tk_memos', memos); $('#memo-text').value = ''; renderMemos();
+});
+$('#memo-list').addEventListener('click', e=>{
+  const b = e.target.closest('[data-del]'); if(!b) return;
+  askDelete('刪除這則備忘？', ()=>{ memos = memos.filter(m=>m.id != b.dataset.del); store.set('tk_memos', memos); renderMemos(); });
+});
+
+
+/* ========== 提前設定：Visit Japan Web 與退稅 ========== */
+const SETUP = [
+ { id:'vjw', icon:'fa-passport', title:'Visit Japan Web 入境申報', when:'建議 11/25 前做完，約 10 分鐘',
+   intro:'做完會拿到一組 QR Code，12/2 在成田入境審查和海關都出示它，不用再寫紙本。先準備好：護照、收得到信的 Email。',
+   steps:[
+    {t:'打開官方網站，語言選繁體中文', d:'只用下面這個官方網址。它完全免費，要你輸入信用卡的都是假網站。', link:['開啟 Visit Japan Web','https://www.vjw.digital.go.jp/'], copy:[['官方網址','https://www.vjw.digital.go.jp/']]},
+    {t:'建立帳號', li:['點「建立新帳號」，勾選同意條款。','輸入自己的 Email 和自訂密碼。','到信箱收驗證碼，填回網頁。沒收到先看垃圾郵件。','把密碼記在手機備忘錄。']},
+    {t:'登入後，登錄「本人資料」', li:['是否持有日本護照：選「否」。','是否持有再入國許可：選「否」。','護照請選「用相機讀取」，對準護照照片那一頁。之後線上退稅確認會用到，不要選手動輸入。','核對英文姓名、護照號碼、效期和護照上一模一樣。']},
+    {t:'點「登錄入境、回國預定」，填航班', d:'下面每一格都可以直接複製。', copy:[['旅程名稱','TOKYO 2026'],['抵達日本的日期','2026/12/02'],['出發地','TAIPEI'],['航空公司','STARLUX AIRLINES'],['航班號碼（若欄位已有 JX，只填 800）','JX800']]},
+    {t:'填「在日本的聯絡處」', d:'要用英文填。郵遞區號輸入後按搜尋，前兩格通常會自動帶出。', copy:[['郵遞區號','1610035'],['都道府縣','TOKYO'],['市區町村','SHINJUKU-KU'],['町名、番地','NAKAI 1-7-5'],['住宿名稱','AIRBNB NAKAI']], after:'聯絡電話填房東電話，由主揪貼到群組。民宿這一格可填房東姓名或電話。'},
+    {t:'回到首頁，點剛建立的「TOKYO 2026」', d:'會看到「入境審查與海關申報」，點進去開始填。畫面若有「檢疫」項目，也照實回答。'},
+    {t:'填入境審查的問題', copy:[['預定停留天數','5'],['入境目的','觀光']], li:['「曾被日本強制遣返或拒絕入境」「曾有犯罪判決」「持有管制藥物、槍砲、刀劍」這三題，一般旅客都是「否」，請依自己的實際情況回答。']},
+    {t:'填海關申報的問題', li:['職業：照實填，例如 OFFICE WORKER。','同行家人人數：朋友不算家人，各自申報，全部填 0。','攜帶物品的題目（違禁品、超過免稅範圍、現金超過 100 萬日圓、後送行李）：一般旅客都是「否」，請依實際情況回答。','肉類、水果、蔬菜都不要帶，這樣才能全部答「否」。'], copy:[['職業範例','OFFICE WORKER']]},
+    {t:'顯示 QR Code，截圖存相簿', li:['入境審查和海關共用同一組 QR Code。','截圖後若又改了資料，要重新截圖。','QR Code 不能代替護照，護照正本一定要帶。','做完在群組回報一聲。']}
+   ]},
+ { id:'tax', icon:'fa-receipt', title:'退稅新制，含機場領現金', when:'2026/11/1 起適用',
+   intro:'現在在日本買免稅品要先付含稅價，離境時海關確認後才退稅。沒有統一的事前申請，但下面的準備做好，12/6 在成田用手機幾分鐘就能完成。',
+   steps:[
+    {t:'出發前：完成上面 Visit Japan Web 的步驟 1 到 3', d:'重點是護照要用相機讀取。線上辦理退稅確認靠的就是這份資料。'},
+    {t:'出發前：準備一張本人名下的信用卡', d:'退款方式由各家店或退稅業者決定，常見是退回信用卡。每個人自己買的東西用自己的護照辦，不能掛在別人名下。'},
+    {t:'12/2 入境後：用 Visit Japan Web 掃護照上的入境貼紙', d:'入境審查官會在護照貼一張「上陸許可」貼紙，上面有 QR Code。當晚回住處打開 Visit Japan Web，用相機掃它。實際按鈕位置以官方畫面為準。'},
+    {t:'購物時：結帳前說要辦免稅', li:['同一家店同一天，稅前滿 ¥5,000 才能辦。','出示護照，先付含稅價。','問清楚退款方式，照店員指示登記。','收據拍照留存。商品在日本不拆、不用、不送人，同一張收據的東西全部帶去機場。'], copy:[['給店員看：請幫我辦免稅','免税でお願いします。'],['給店員看：請告訴我退款方式','返金方法を教えてください。'],['給店員看：可以在機場領現金嗎','空港で現金で返金を受け取れますか。']]},
+    {t:'12/6 成田：託運行李前，連上海關專用 Wi-Fi', d:'在第二航廈出境大廳、過安檢之前才連得到。', copy:[['Wi-Fi 名稱','Customs_WiFi_For_TaxRefund'],['Wi-Fi 密碼','jcustoms']]},
+    {t:'12/6 成田：打開 Visit Japan Web 做稅關確認', li:['綠色結果：不用查驗，手續完成。','紅色結果：帶著那筆購買的全部商品，到指定的海關檢查處。','手機辦不成：改用現場的 Tax Refund Kiosk 機台，掃護照即可。']},
+    {t:'確認完成後，才把免稅品交給航空公司託運', d:'順序不能反。快趕不上飛機時先登機，退稅可以放棄。退款之後由店家或退稅業者處理，入帳時間各家不同。', link:['日本稅關官方說明','https://www.customs.go.jp/kaigairyoko/taxrefund.htm']},
+    {t:'想領現金：先確認這家店能不能在機場領', d:'不是每家店都能領現金。能不能領，看那家店配合的退稅業者有沒有在成田設點。結帳時用上面第 4 步的日文問店員，並記下退稅業者的名字，收據上通常也會印。'},
+    {t:'想領現金：稅關確認完成後，去找現金退稅機', li:['一定要先做完第 6 步的稅關確認，沒確認領不到。','成田第二航廈的現金退稅機叫「TAX Cash Refund」，安檢前和安檢後都有。','安檢前、安檢後的機台，能處理的退稅業者不一樣。到現場先看機台上列的業者名單有沒有你的那一家。','另外有 Cash Japan 的櫃檯，在第二航廈 3 樓，06:00 到 23:00。']},
+    {t:'想領現金：掃護照，確認金額，拿日圓', li:['用購物時出示的同一本護照，放到機台上掃描。','畫面會列出可以退的購買紀錄，確認後現金就會出來。','這一步不用再拿商品出來。','只給日圓現金。以整張收據為單位，不能只退一部分。','實拿金額會扣掉手續費，所以比付出去的消費稅少一些。']},
+    {t:'想領現金：時間怎麼排', d:'12/6 的順序是：稅關確認，託運行李，安檢前的機台領現金，再過安檢。排隊太長就先過安檢，裡面也有機台。領到的日圓可以在機場花掉或帶回家。機台不支援你那家店時，退款會照購物時登記的方式（例如信用卡）處理，不用另外做什麼。', link:['成田機場官方：退稅與現金返金','https://www.narita-airport.jp/ja/airportguide/inter-dep/']}
+   ]}
+];
+let setupDone = store.get('tk_setup', {});
+function copyText(txt, btn){
+  const old = btn.innerHTML, ok = ()=>{ btn.classList.add('ok'); btn.textContent = '已複製'; setTimeout(()=>{ btn.classList.remove('ok'); btn.innerHTML = old; }, 1400); };
+  const fallback = ()=>{ const ta = document.createElement('textarea'); ta.value = txt; ta.setAttribute('readonly',''); ta.style.cssText = 'position:fixed;opacity:0;top:0';
+    document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, txt.length); let done = false; try{ done = document.execCommand('copy'); }catch(e){} ta.remove();
+    if(done) ok(); else openDlg(`<p style="margin:0 0 8px;font-weight:700">長按下面文字複製</p><textarea class="field" rows="2" readonly>${esc(txt)}</textarea>`); };
+  try{ if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).then(ok, fallback); else fallback(); }catch(e){ fallback(); }
+}
+function renderSetup(){
+  const openIds = [...document.querySelectorAll('#setup details[open]')].map(d=>d.dataset.g);
+  $('#setup').innerHTML = SETUP.map(g=>{
+    const n = g.steps.filter((_,i)=>setupDone[g.id+i]).length;
+    return `<details class="slab-flat" data-g="${g.id}" ${openIds.includes(g.id)?'open':''}>
+      <summary><span><i class="fa-solid ${g.icon}"></i> ${esc(g.title)}<br><small style="font-weight:500;color:#4a516b">${esc(g.when)}</small></span>
+        <span style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span class="chip" style="${n===g.steps.length?'background:var(--teal);color:#fff':''}">${n} / ${g.steps.length}</span><i class="fa-solid fa-chevron-down"></i></span></summary>
+      <div class="inner"><p style="margin:0 0 4px">${esc(g.intro)}</p>
+      ${g.steps.map((st,i)=>`<div class="step ${setupDone[g.id+i]?'done':''}">
+        <div class="no disp">${i+1}</div>
+        <div style="flex:1;min-width:0">
+          <div class="st">${esc(st.t)}</div>
+          ${st.d?`<p class="sd">${esc(st.d)}</p>`:''}
+          ${st.li?`<ul>${st.li.map(l=>`<li>${esc(l)}</li>`).join('')}</ul>`:''}
+          ${(st.copy||[]).map(c=>`<div class="copyrow"><div style="flex:1;min-width:0"><div class="k">${esc(c[0])}</div><div class="v">${esc(c[1])}</div></div><button type="button" data-copy="${esc(c[1])}">複製</button></div>`).join('')}
+          ${st.after?`<p class="sd">${esc(st.after)}</p>`:''}
+          ${st.link?`<a class="btn btn-sun" style="margin-top:10px" target="_blank" rel="noopener" href="${st.link[1]}"><i class="fa-solid fa-up-right-from-square"></i>${esc(st.link[0])}</a>`:''}
+          <div><button type="button" class="donebtn" data-step="${g.id+i}" aria-pressed="${!!setupDone[g.id+i]}">${setupDone[g.id+i]?'已完成，點一下取消':'這步完成'}</button></div>
+        </div></div>`).join('')}
+      </div></details>`; }).join('');
+}
+$('#setup').addEventListener('click', e=>{
+  const c = e.target.closest('[data-copy]'), d = e.target.closest('[data-step]');
+  if(c) copyText(c.dataset.copy, c);
+  if(d){ setupDone[d.dataset.step] = !setupDone[d.dataset.step]; store.set('tk_setup', setupDone); renderSetup(); }
+});
+
+/* ========== INFO ========== */
+function renderInfo(){
+  $('#info-trip').innerHTML = `
+    <div class="slab" style="padding:14px">
+      <div style="font-weight:900"><i class="fa-solid fa-plane-departure"></i> 去程　12/2（三）星宇 JX800</div>
+      <div class="disp" style="font-size:1.25rem;margin:4px 0">08:25 桃園 T1　12:35 成田 T2</div>
+      <div style="font-size:.88rem;color:#4a516b">建議 05:30 到 06:00 抵達機場。線上報到在起飛前 48 小時到 1 小時開放。</div>
+    </div>
+    <div class="slab" style="padding:14px">
+      <div style="font-weight:900"><i class="fa-solid fa-plane-arrival"></i> 回程　12/6（日）星宇 JX805</div>
+      <div class="disp" style="font-size:1.25rem;margin:4px 0">20:10 成田 T2　23:20 桃園 T1</div>
+      <div style="font-size:.88rem;color:#4a516b">15:00 到 15:15 新宿上專車，目標 17:00 到 17:40 抵達成田。</div>
+    </div>
+    <div class="slab" style="padding:14px">
+      <div style="font-weight:900"><i class="fa-solid fa-house"></i> 住宿　Airbnb 中井</div>
+      <div style="font-size:1.05rem;font-weight:700;margin:4px 0">〒161-0035 東京都新宿区中井 1-7-5</div>
+      <div style="font-size:.88rem;color:#4a516b;margin-bottom:10px">1-7-5 Nakai, Shinjuku City。12/6 10:00 退房。</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="btn" target="_blank" rel="noopener" data-map="${esc('東京都新宿区中井1-7-5')}" href="${maps('東京都新宿区中井1-7-5')}"><i class="fa-solid fa-location-dot"></i>開啟地圖</a>
+        <button class="btn btn-sun" id="show-addr"><i class="fa-solid fa-taxi"></i>放大給司機看</button>
+      </div>
+    </div>`;
+  $('#show-addr').addEventListener('click', ()=>openDlg(`<p style="margin:0 0 8px;font-size:.9rem">この住所までお願いします。</p><p class="disp" style="font-size:1.7rem;line-height:1.4;margin:0">〒161-0035<br>東京都新宿区<br>中井 1-7-5</p>`));
+
+  const SOS = [
+    ['fa-shield-halved','警察','110','110'],
+    ['fa-truck-medical','救護車、消防','119','119'],
+    ['fa-headset','JNTO 旅客熱線（中文，24 小時）','050-3816-2787','050-3816-2787'],
+    ['fa-building-flag','台北駐日經濟文化代表處','03-3280-7811','03-3280-7811'],
+    ['fa-triangle-exclamation','代表處急難救助（重大急難）','080-1009-7179','080-1009-7179'],
+    ['fa-triangle-exclamation','代表處急難救助，第二支','080-1009-7436','080-1009-7436']
+  ];
+  $('#info-sos').innerHTML = SOS.map(s=>`
+    <a class="slab-flat" href="${tel(s[3])}" style="padding:12px 14px;display:flex;align-items:center;gap:12px;text-decoration:none">
+      <i class="fa-solid ${s[0]}" style="font-size:1.3rem;width:28px;text-align:center;color:var(--pink)"></i>
+      <span style="flex:1;font-weight:700;font-size:.95rem">${s[1]}</span>
+      <span class="disp" style="font-size:1.05rem;white-space:nowrap">${s[2]}</span>
+    </a>`).join('') + `<p style="margin:4px 0 0;font-size:.85rem;color:#4a516b">房東、接送司機、保險公司的電話和訂單編號，出發前記到 LISTS 的備忘錄並截圖。</p>`;
+
+  const PH = [
+    ['我想去這個地址。','この住所までお願いします。'],
+    ['請確認有沒有四個人的桌席。','4名でテーブル席はありますか。'],
+    ['可以取消或改時間嗎？','予約の変更またはキャンセルはできますか。'],
+    ['請讓我看這個商品。','これを見せてください。'],
+    ['我們有四個人。','4人です。'],
+    ['請幫忙，這是緊急情況。','助けてください。緊急です。'],
+    ['可以叫救護車嗎？','救急車を呼んでください。'],
+    ['護照不見了。','パスポートをなくしました。']
+  ];
+  $('#info-phrases').innerHTML = PH.map((p,i)=>`
+    <button class="slab-flat" data-ph="${i}" style="padding:10px 14px;text-align:left;width:100%">
+      <div style="font-size:.85rem;color:#4a516b">${p[0]}</div><div style="font-weight:700;font-size:1.02rem" lang="ja">${p[1]}</div>
+    </button>`).join('');
+  $('#info-phrases').addEventListener('click', e=>{
+    const b = e.target.closest('[data-ph]'); if(!b) return; const p = PH[b.dataset.ph];
+    openDlg(`<p lang="ja" style="font-size:1.9rem;font-weight:900;line-height:1.45;margin:0 0 10px">${p[1]}</p><p style="margin:0;color:#4a516b">${p[0]}</p>`);
+  });
+
+  const RULES = [
+    ['帶進日本的禁忌', ['肉製品、香腸、火腿、肉乾都不能帶，真空包裝和機上餐點也一樣。','生鮮水果、蔬菜不能帶。','自用藥品有數量限制，處方藥帶著藥袋或處方。','行動電源最多 2 個、每個 100Wh 以下，只能放隨身行李。星宇機上禁止使用和充電。']],
+    ['日本入境流程', ['持有登載身分證字號的有效台灣護照，觀光可免簽停留 90 日。免簽不代表免審查。','準備好護照、回程機票、住宿地址。入境會按指紋、拍臉部照片。','每人各自在 Visit Japan Web 填好入境與海關申報，截圖備份。','成田 T2 順序：入國審查、領行李、海關申報、和接機人員會合。'], 'https://www.vjw.digital.go.jp/', 'Visit Japan Web'],
+    ['2026 年 11 月起的退稅新制', ['在免稅店購物先付含稅價，離境時海關確認後才退消費稅。店內不再直接扣稅。','同一店同日稅前滿 ¥5,000 才符合門檻。結帳出示護照請店員登錄，收據留好。','免稅商品不要在日本使用、轉送或弄丟。同一張收據的商品要全部帶著。','12/6 在成田：先用退稅 kiosk 或 Visit Japan Web 完成確認，再託運。被抽驗要帶該筆全部商品去櫃檯。','想在機場領日圓現金：稅關確認後到「TAX Cash Refund」機台掃護照。不是每家店都支援，詳細步驟在 LISTS 的退稅教學。','快趕不上飛機時先登機，退稅可以放棄。'], 'https://www.customs.go.jp/kaigairyoko/taxrefund.htm', '日本稅關說明'],
+    ['回台灣入境', ['有戶籍的國民回台不用填入國登記表。','每人免稅額 NT$35,000。高單價軟膠和衣物留著收據，超過就走紅線申報。','大量同款玩具可能不被當成自用。','鮮果、肉乾、香腸、火腿和多數肉製品不能帶回台灣。']],
+    ['在東京生活的禮貌', ['住處晚上控制音量，遵守垃圾分類和禁菸規定。','計程車後門是自動開關，不用自己拉。在合法的地方上下車。','電車上不講電話，手扶梯靠左站。','小店、手作軟膠攤位和老店可能只收現金。','神社寺院和收藏店的櫥窗，拍照前先看有沒有禁止標示。']],
+    ['地震或天災', ['先保護頭部，遠離玻璃和貨架，聽現場人員指示避難。不要搭電梯。','下載觀光廳的 Safety tips App，可收繁體中文的地震、海嘯和氣象警報。','四個人約定一個集合點。訊號不好就改傳簡訊。'], 'https://www.jnto.go.jp/safety-tips/eng/app.html', 'Safety tips App']
+  ];
+  $('#info-rules').innerHTML = RULES.map((r,i)=>`
+    <details class="slab-flat" ${i===0?'open':''}><summary>${r[0]}<i class="fa-solid fa-chevron-down"></i></summary>
+      <div class="inner"><ul>${r[1].map(l=>`<li>${l}</li>`).join('')}</ul>
+      ${r[2]?`<a class="btn btn-sun" style="margin-top:10px" target="_blank" rel="noopener" href="${r[2]}"><i class="fa-solid fa-up-right-from-square"></i>${r[3]}</a>`:''}</div></details>`).join('');
+
+  const PB = [
+    ['JX800 延誤或入境很慢','通知接送方。太晚就只保留晚餐或超市。'],
+    ['12/2 tonkatsu.jp 休息或客滿','改まい泉 青山本店。用餐超時就直接採買或外帶。'],
+    ['12/3 肉屋横丁訂不到','看同區的福寿，先確認中午放題。不能確認就吃一般燒肉。'],
+    ['12/3 玩具逛不完','刪 Complex 和壽司，保留 CoCoo、One-Up、中野。'],
+    ['12/4 下雨或人太多','茶房和銀座刪一項。市集只有官方宣布停辦才改吃別的。'],
+    ['12/5 怪獣島要早排隊','搶購的人照規則先去，其他人正常起床吃午餐，中目黑會合。'],
+    ['12/5 串燒店沒有四人桌','改串若丸（熱鬧、位置可能擠）或なかめのてっぺん。'],
+    ['12/6 燒肉首選客滿','改高島屋 14F 焼肉トラジ，想吃牛舌去 13F ねぎし。領行李時間不能拖。'],
+    ['12/6 行李寄放客滿','問房東能不能暫放，或找新宿站其他確認可用的寄放店。不要臨時靠小型投幣櫃。'],
+    ['12/6 專車遲到或塞車','馬上打電話。不可靠就改搭新宿往成田的 Narita Express 指定席，不要等到錯過航班。'],
+    ['手機、護照、錢包不見','先回想最後位置，到派出所（交番）報案、凍結卡片。護照找駐日代表處。'],
+    ['身體不舒服或受傷','先顧安全，撥 119 或 110，再聯絡 JNTO 中文熱線和保險公司。']
+  ];
+  $('#info-playbook').innerHTML = PB.map(p=>`<details class="slab-flat"><summary>${p[0]}<i class="fa-solid fa-chevron-down"></i></summary><div class="inner">${p[1]}</div></details>`).join('');
+
+  const DIR = [
+    ['住宿','Airbnb 中井','東京都新宿区中井 1-7-5',''],
+    ['超市','LIFE 東中野','中野区東中野 3-9-7','03-5386-6181','09:00 到 00:00'],
+    ['炸豬排','tonkatsu.jp','港区北青山 3-9-9 FNビル 1F','03-6427-4910'],
+    ['炸豬排備案','まい泉 青山本店','渋谷区神宮前 4-8-5','050-3188-5802'],
+    ['燒肉','肉屋横丁 秋葉原','千代田区外神田 1-18-19 BiTO AKIBA 3F','03-3525-4629'],
+    ['軟膠','Mandarake CoCoo','千代田区神田練塀町 13-1','03-3527-1631','12:00 到 20:00'],
+    ['軟膠','One-Up AKIBA','千代田区神田須田町 2-11-8 玉甚ビル 2F','','營業當日查證'],
+    ['軟膠','中野 Broadway','中野区中野 5-52-15','','墓場の画廊在 3F'],
+    ['牛舌','牛たんの檸檬 浅草','台東区浅草 2-9-13 TACT浅草 2F','03-6284-7266'],
+    ['神社','小網神社','中央区日本橋小網町 16-23','03-3668-1080','御守 09:00 到 17:00'],
+    ['茶房','TANAGOKORO','中央区銀座 1-8-15 3F','03-3567-8455','11:00 到 19:00'],
+    ['聖誕市集','芝公園御成門站前廣場','港区芝公園 3-2','','12/4 16:00 到 22:00'],
+    ['怪獣島','GALLERY STAND','目黒区東山 2-2-2 オリエンタル東山','','規則待官方公告'],
+    ['串燒','とりまち','目黒区上目黒 3-6-5 中目ビル 1F','03-6451-2330','週六 15:00 到 01:00'],
+    ['爐端備案','なかめのてっぺん 本店','目黒区上目黒 3-9-5','03-5724-4439','18:00 到 05:00'],
+    ['寄物','Busta 新宿 3F 佐川','渋谷区千駄ヶ谷 5-24-55 バスタ新宿 3F','03-5361-8750','06:30 到 21:00'],
+    ['燒肉首選','焼肉うしごろ 新宿三丁目','新宿区新宿 3-17-10 HULIC &New 12F','03-3358-4129','週日 11:30 開'],
+    ['燒肉備案','焼肉トラジ','渋谷区千駄ヶ谷 5-24-2 高島屋 14F','03-5361-1992','11:00 到 23:00'],
+    ['牛舌備案','ねぎし','新宿高島屋タイムズスクエア 13F','03-5361-1872','11:00 到 22:00'],
+    ['機場','成田空港 第2ターミナル','3階 国際線出発ロビー','','星宇通常在 Q 櫃台']
+  ];
+  $('#info-dir').innerHTML = DIR.map(d=>`
+    <div class="slab-flat" style="padding:10px 14px">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><b>${d[1]}</b><span class="chip">${d[0]}</span></div>
+      <div lang="ja" style="font-size:.92rem;margin:2px 0">${d[2]}</div>
+      ${d[4]?`<div style="font-size:.8rem;color:#4a516b">${d[4]}</div>`:''}
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <a class="btn" target="_blank" rel="noopener" data-map="${esc(d[1]+' '+d[2])}" href="${maps(d[1]+' '+d[2])}"><i class="fa-solid fa-location-dot"></i>地圖</a>
+        ${d[3]?`<a class="btn" href="${tel(d[3])}"><i class="fa-solid fa-phone"></i>${d[3]}</a>`:''}
+      </div>
+    </div>`).join('');
+}
+
+/* ========== 分頁切換 ========== */
+function showTab(name){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on', t.id === 'tab-'+name));
+  document.querySelectorAll('.nav button').forEach(b=>b.setAttribute('aria-selected', b.dataset.tab === name));
+  store.set('tk_tab', name); window.scrollTo(0,0);
+}
+document.querySelector('.nav').addEventListener('click', e=>{ const b = e.target.closest('button'); if(b) showTab(b.dataset.tab); });
+
+renderCountdown(); renderDays(); renderDay(); renderGuide(); showCalc(false); renderLedger(); renderFx();
+if(!(fx && fx.manual) && !(fx && Date.now() - fx.at < 3*3600e3)) refreshFx();
+ renderChecks(); renderMemos(); renderSetup(); renderInfo();
+const savedTab = store.get('tk_tab', 'plan'); if(savedTab !== 'plan') showTab(savedTab);
+</script>
+</body>
+</html>
