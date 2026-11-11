@@ -1,5 +1,5 @@
 // 離線快取：第一次開啟後，沒有網路也能打開 App
-const CACHE = 'tokyo2026-v1';
+const CACHE = 'tokyo2026-v2';
 const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png', 'icon-180.png'];
 const KEEP = ['fonts.googleapis.com', 'fonts.gstatic.com', 'cdn.tailwindcss.com'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
